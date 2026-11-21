@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Percentage &amp; Discount Calculator - Quick Math &amp; Savings | QuickTools Hub</title>
+  <meta name="description" content="Calculate percentages, shopping discounts, final discounted prices, and savings amount online for free with examples and FAQs." />
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-soft: rgba(79, 70, 229, 0.08);
+      --accent: #0d9488;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 12% 0%, rgba(79, 70, 229, 0.09) 0%, transparent 42%),
+        radial-gradient(circle at 88% 8%, rgba(13, 148, 136, 0.08) 0%, transparent 38%);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.95rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-decoration: none;
+      background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .page-wrap {
+      max-width: 920px;
+      margin: 2rem auto 3rem;
+      padding: 0 1.2rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 3vw, 2.15rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 1.3rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #334155;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 0.7rem 0.85rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      margin-bottom: 0.85rem;
+      background: #f8fafc;
+    }
+
+    button.primary-btn {
+      background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
+      color: #ffffff;
+      border: none;
+      padding: 0.78rem 1.2rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .result-box {
+      margin-top: 1rem;
+      padding: 0.95rem 1rem;
+      background: linear-gradient(135deg, #eef2ff 0%, #f0f9ff 100%);
+      border: 1px solid #dbeafe;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.02rem;
+      min-height: 52px;
+    }
+
+    .sub-result {
+      margin-top: 0.4rem;
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: #475569;
+    }
+
+    .ad-slot {
+      margin: 1.5rem 0;
+      padding: 0.95rem 1rem;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px dashed #cbd5e1;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.82rem;
+      border-radius: 12px;
+    }
+
+    .guide h2 {
+      font-size: 1.22rem;
+      margin: 1.1rem 0 0.45rem;
+    }
+
+    .guide p, .guide li {
+      color: #334155;
+      font-size: 0.94rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .guide ul {
+      padding-left: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.8rem 1rem;
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">QuickTools Hub</a>
+    <nav>
+      <a href="index.html">All Tools</a>
+      <a href="age-calculator.html">Age Calculator</a>
+      <a href="word-counter.html">Word Counter</a>
+      <a href="currency-converter.html">Currency</a>
+    </nav>
+  </header>
+
+  <main class="page-wrap">
+    <a href="index.html" class="back-link">← Back to All 9 Tools</a>
+
+    <div class="ad-slot">Advertisement Space (Top Banner - Responsive)</div>
+
+    <section class="card">
+      <h1>Percentage &amp; Discount Calculator</h1>
+      <p class="subtitle">Find a percentage of any total, calculate discount savings, and see the final price after discount.</p>
+
+      <div class="two-col">
+        <div>
+          <label for="full-perc-val">Percentage (%):</label>
+          <input type="number" id="full-perc-val" value="20" step="any" oninput="calculateFullPercentage()" />
+        </div>
+        <div>
+          <label for="full-perc-total">Total / Original Price:</label>
+          <input type="number" id="full-perc-total" value="5000" step="any" oninput="calculateFullPercentage()" />
+        </div>
+      </div>
+
+      <button type="button" class="primary-btn" onclick="calculateFullPercentage()">Calculate Percentage &amp; Discount</button>
+
+      <div class="result-box">
+        <span id="full-perc-main">20% of 5,000 = 1,000</span>
+        <div class="sub-result" id="full-perc-sub">Final price after 20% discount: 4,000 (You save: 1,000)</div>
+      </div>
+    </section>
+
+    <div class="ad-slot">Advertisement Space (Mid Content Banner - Responsive)</div>
+
+    <article class="card guide">
+      <h2>How Percentage &amp; Discount Calculations Work</h2>
+      <p>To find X% of a number, multiply the number by X and divide by 100. For shopping discounts, that calculated value is the amount saved, and subtracting it from the original price gives the final sale price.</p>
+
+      <h2>Everyday Uses</h2>
+      <ul>
+        <li><strong>Sale &amp; Clearance Shopping:</strong> Quickly check how much a 15%, 25%, or 50% discount lowers an item's price.</li>
+        <li><strong>Exam &amp; Test Scores:</strong> Calculate percentage portions or mark breakdowns for study planning.</li>
+        <li><strong>Budgets &amp; Commissions:</strong> Break down allocations, tips, or percentage-based shares.</li>
+      </ul>
+
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Can I enter decimal percentages like 12.5%?</strong><br />Yes, decimal values and decimal amounts are supported.</p>
+      <p><strong>Does it show both saved amount and final price?</strong><br />Yes, the result box displays both the percentage amount/savings and the price after discount.</p>
+    </article>
+
+    <div class="ad-slot">Advertisement Space (Bottom Banner - Responsive)</div>
+  </main>
+
+  <footer>
+    &copy; 2026 QuickTools Hub. All rights reserved. &middot; <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">Home</a>
+  </footer>
+
+  <script>
+    function calculateFullPercentage() {
+      const p = parseFloat(document.getElementById("full-perc-val").value);
+      const total = parseFloat(document.getElementById("full-perc-total").value);
+      const mainEl = document.getElementById("full-perc-main");
+      const subEl = document.getElementById("full-perc-sub");
+
+      if (isNaN(p) || isNaN(total)) {
+        mainEl.textContent = "Please enter valid numbers in both fields.";
+        subEl.textContent = "";
+        return;
+      }
+
+      const part = (p / 100) * total;
+      const afterDiscount = total - part;
+
+      mainEl.textContent = p + "% of " + total.toLocaleString() + " = " +
+        part.toLocaleString(undefined, { maximumFractionDigits: 2 });
+      subEl.textContent = "Final price after " + p + "% discount: " +
+        afterDiscount.toLocaleString(undefined, { maximumFractionDigits: 2 }) +
+        " (You save: " + part.toLocaleString(undefined, { maximumFractionDigits: 2 }) + ")";
+    }
+
+    calculateFullPercentage();
+  </script>
+</body>
+</html>

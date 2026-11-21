@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMI &amp; Fitness Calculator - Body Mass Index &amp; Weight Range | QuickTools Hub</title>
+  <meta name="description" content="Calculate your Body Mass Index (BMI), see your weight category, check healthy weight range, and learn fitness basics online for free." />
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-soft: rgba(79, 70, 229, 0.08);
+      --accent: #0d9488;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 12% 0%, rgba(79, 70, 229, 0.09) 0%, transparent 42%),
+        radial-gradient(circle at 88% 8%, rgba(13, 148, 136, 0.08) 0%, transparent 38%);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.95rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-decoration: none;
+      background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .page-wrap {
+      max-width: 920px;
+      margin: 2rem auto 3rem;
+      padding: 0 1.2rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 3vw, 2.15rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 1.3rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #334155;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 0.7rem 0.85rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      margin-bottom: 0.85rem;
+      background: #f8fafc;
+    }
+
+    button.primary-btn {
+      background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
+      color: #ffffff;
+      border: none;
+      padding: 0.78rem 1.2rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .result-box {
+      margin-top: 1rem;
+      padding: 0.95rem 1rem;
+      background: linear-gradient(135deg, #eef2ff 0%, #f0f9ff 100%);
+      border: 1px solid #dbeafe;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.02rem;
+      min-height: 52px;
+    }
+
+    .sub-result {
+      margin-top: 0.4rem;
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: #475569;
+    }
+
+    .ad-slot {
+      margin: 1.5rem 0;
+      padding: 0.95rem 1rem;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px dashed #cbd5e1;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.82rem;
+      border-radius: 12px;
+    }
+
+    .guide h2 {
+      font-size: 1.22rem;
+      margin: 1.1rem 0 0.45rem;
+    }
+
+    .guide p, .guide li {
+      color: #334155;
+      font-size: 0.94rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .guide ul {
+      padding-left: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.8rem 1rem;
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">QuickTools Hub</a>
+    <nav>
+      <a href="index.html">All Tools</a>
+      <a href="age-calculator.html">Age Calculator</a>
+      <a href="word-counter.html">Word Counter</a>
+      <a href="percentage-calculator.html">Percentage</a>
+    </nav>
+  </header>
+
+  <main class="page-wrap">
+    <a href="index.html" class="back-link">← Back to All 9 Tools</a>
+
+    <div class="ad-slot">Advertisement Space (Top Banner - Responsive)</div>
+
+    <section class="card">
+      <h1>BMI &amp; Fitness Calculator</h1>
+      <p class="subtitle">Check your Body Mass Index (BMI), see your weight category, and estimate a healthy weight range for your height.</p>
+
+      <div class="two-col">
+        <div>
+          <label for="full-weight-kg">Weight (kg):</label>
+          <input type="number" id="full-weight-kg" value="70" min="1" step="any" oninput="calculateFullBMI()" />
+        </div>
+        <div>
+          <label for="full-height-cm">Height (cm):</label>
+          <input type="number" id="full-height-cm" value="172" min="30" step="any" oninput="calculateFullBMI()" />
+        </div>
+      </div>
+
+      <button type="button" class="primary-btn" onclick="calculateFullBMI()">Calculate BMI &amp; Weight Range</button>
+
+      <div class="result-box">
+        <span id="full-bmi-main">Enter weight and height to calculate BMI.</span>
+        <div class="sub-result" id="full-bmi-sub"></div>
+      </div>
+    </section>
+
+    <div class="ad-slot">Advertisement Space (Mid Content Banner - Responsive)</div>
+
+    <article class="card guide">
+      <h2>Understanding BMI Categories</h2>
+      <p>Body Mass Index (BMI) compares your weight in kilograms to your height in meters squared. Standard adult categories are:</p>
+      <ul>
+        <li><strong>Underweight:</strong> BMI below 18.5</li>
+        <li><strong>Normal weight:</strong> BMI 18.5 to 24.9</li>
+        <li><strong>Overweight:</strong> BMI 25.0 to 29.9</li>
+        <li><strong>Obesity:</strong> BMI 30.0 or higher</li>
+      </ul>
+
+      <h2>Fitness &amp; Lifestyle Notes</h2>
+      <p>BMI is a helpful general screening tool, though it does not directly measure body fat percentage, muscle mass, or bone density. Pair regular movement, balanced nutrition, and adequate sleep with guidance from a healthcare professional for personal health advice.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>What formula is used for BMI?</strong><br />BMI equals weight (kg) divided by height in meters squared: weight / (height_in_meters &times; height_in_meters).</p>
+      <p><strong>Does BMI account for athletic muscle?</strong><br />Muscular individuals can have a higher BMI without excess body fat, so look at overall fitness and health context as well.</p>
+    </article>
+
+    <div class="ad-slot">Advertisement Space (Bottom Banner - Responsive)</div>
+  </main>
+
+  <footer>
+    &copy; 2026 QuickTools Hub. All rights reserved. &middot; <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">Home</a>
+  </footer>
+
+  <script>
+    function calculateFullBMI() {
+      const w = parseFloat(document.getElementById("full-weight-kg").value);
+      const hCm = parseFloat(document.getElementById("full-height-cm").value);
+      const mainEl = document.getElementById("full-bmi-main");
+      const subEl = document.getElementById("full-bmi-sub");
+
+      if (isNaN(w) || isNaN(hCm) || w <= 0 || hCm <= 0) {
+        mainEl.textContent = "Please enter valid positive weight and height values.";
+        subEl.textContent = "";
+        return;
+      }
+
+      const hM = hCm / 100;
+      const bmi = w / (hM * hM);
+
+      let category = "Normal weight";
+      if (bmi < 18.5) category = "Underweight";
+      else if (bmi >= 25 && bmi < 30) category = "Overweight";
+      else if (bmi >= 30) category = "Obesity";
+
+      const minHealthy = (18.5 * hM * hM).toFixed(1);
+      const maxHealthy = (24.9 * hM * hM).toFixed(1);
+
+      mainEl.textContent = "BMI: " + bmi.toFixed(1) + " (" + category + ")";
+      subEl.textContent = "Healthy weight range for " + hCm + " cm: " + minHealthy + " kg – " + maxHealthy + " kg";
+    }
+
+    calculateFullBMI();
+  </script>
+</body>
+</html>

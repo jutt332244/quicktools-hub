@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exact Age Calculator - Years, Months & Days | QuickTools Hub</title>
+  <meta name="description" content="Calculate your exact age in years, months, and days online for free. Includes age milestones, leap year info, and FAQs." />
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-soft: rgba(79, 70, 229, 0.08);
+      --accent: #0d9488;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 12% 0%, rgba(79, 70, 229, 0.09) 0%, transparent 42%),
+        radial-gradient(circle at 88% 8%, rgba(13, 148, 136, 0.08) 0%, transparent 38%);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.95rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-decoration: none;
+      background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .page-wrap {
+      max-width: 920px;
+      margin: 2rem auto 3rem;
+      padding: 0 1.2rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 3vw, 2.15rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 1.3rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #334155;
+    }
+
+    input[type="date"] {
+      width: 100%;
+      padding: 0.72rem 0.9rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      margin-bottom: 0.9rem;
+      background: #f8fafc;
+    }
+
+    button {
+      background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
+      color: #ffffff;
+      border: none;
+      padding: 0.78rem 1.2rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .result-box {
+      margin-top: 1rem;
+      padding: 0.95rem 1rem;
+      background: linear-gradient(135deg, #eef2ff 0%, #f0f9ff 100%);
+      border: 1px solid #dbeafe;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      min-height: 50px;
+    }
+
+    .extra-info {
+      margin-top: 0.5rem;
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: #475569;
+    }
+
+    .ad-slot {
+      margin: 1.5rem 0;
+      padding: 0.95rem 1rem;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px dashed #cbd5e1;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.82rem;
+      border-radius: 12px;
+    }
+
+    .guide h2 {
+      font-size: 1.22rem;
+      margin: 1.1rem 0 0.45rem;
+    }
+
+    .guide p, .guide li {
+      color: #334155;
+      font-size: 0.94rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .guide ul {
+      padding-left: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.8rem 1rem;
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">QuickTools Hub</a>
+    <nav>
+      <a href="index.html">All Tools</a>
+      <a href="index.html#currency-tool">Currency</a>
+      <a href="index.html#qr-tool">QR Generator</a>
+      <a href="index.html#ai-assistant">AI Info</a>
+    </nav>
+  </header>
+
+  <main class="page-wrap">
+    <a href="index.html" class="back-link">← Back to All 9 Tools</a>
+
+    <div class="ad-slot">Advertisement Space (Top Banner - Responsive)</div>
+
+    <section class="card">
+      <h1>Exact Age Calculator</h1>
+      <p class="subtitle">Find your exact age in years, months, and days, along with total days lived and your next birthday countdown.</p>
+
+      <label for="dob">Select Your Date of Birth:</label>
+      <input type="date" id="dob" />
+      <button onclick="calculateFullAge()">Calculate Exact Age</button>
+
+      <div class="result-box" id="age-result">
+        Your exact age will appear here.
+        <div class="extra-info" id="age-extra"></div>
+      </div>
+    </section>
+
+    <div class="ad-slot">Advertisement Space (Mid Content Banner - Responsive)</div>
+
+    <article class="card guide">
+      <h2>How Exact Age Is Calculated</h2>
+      <p>An exact age calculator compares your date of birth against today's calendar date while accounting for varying month lengths (28, 30, or 31 days) and leap years.</p>
+
+      <h2>Common Uses of an Age Calculator</h2>
+      <ul>
+        <li><strong>Official Forms &amp; Admissions:</strong> School admissions, job applications, and government forms often require exact age on a specific cutoff date.</li>
+        <li><strong>Fitness &amp; Health Benchmarks:</strong> Many health metrics and wellness guidelines group adults by age brackets.</li>
+        <li><strong>Milestone Tracking:</strong> Checking how many days you have lived or how many days remain until your next birthday.</li>
+      </ul>
+
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Does this calculator account for leap years?</strong><br />Yes, JavaScript's calendar date calculation automatically handles leap days in February.</p>
+      <p><strong>Is my date of birth stored on any server?</strong><br />No, all calculations run directly in your browser.</p>
+    </article>
+
+    <div class="ad-slot">Advertisement Space (Bottom Banner - Responsive)</div>
+  </main>
+
+  <footer>
+    &copy; 2026 QuickTools Hub. All rights reserved. &middot; <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">Home</a>
+  </footer>
+
+  <script>
+    function calculateFullAge() {
+      const dobInput = document.getElementById("dob").value;
+      const resultBox = document.getElementById("age-result");
+      const extraBox = document.getElementById("age-extra");
+
+      if (!dobInput) {
+        resultBox.firstChild.textContent = "Please select your date of birth first.";
+        extraBox.textContent = "";
+        return;
+      }
+
+      const dob = new Date(dobInput + "T00:00:00");
+      const today = new Date();
+      const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+      if (dob > todayMidnight) {
+        resultBox.firstChild.textContent = "Date of birth cannot be in the future.";
+        extraBox.textContent = "";
+        return;
+      }
+
+      let years = todayMidnight.getFullYear() - dob.getFullYear();
+      let months = todayMidnight.getMonth() - dob.getMonth();
+      let days = todayMidnight.getDate() - dob.getDate();
+
+      if (days < 0) {
+        months--;
+        days += new Date(todayMidnight.getFullYear(), todayMidnight.getMonth(), 0).getDate();
+      }
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      const totalDays = Math.floor((todayMidnight - dob) / (1000 * 60 * 60 * 24));
+      let nextBday = new Date(todayMidnight.getFullYear(), dob.getMonth(), dob.getDate());
+      if (nextBday < todayMidnight) {
+        nextBday = new Date(todayMidnight.getFullYear() + 1, dob.getMonth(), dob.getDate());
+      }
+      const daysUntilBday = Math.ceil((nextBday - todayMidnight) / (1000 * 60 * 60 * 24));
+
+      resultBox.firstChild.textContent = years + " Years, " + months + " Months, " + days + " Days";
+      extraBox.textContent = "Total days lived: " + totalDays.toLocaleString() + " days · Next birthday in: " + daysUntilBday + " days";
+    }
+  </script>
+</body>
+</html>

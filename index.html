@@ -274,7 +274,6 @@
       border-radius: 6px;
     }
 
-    /* AI Section */
     .ai-section {
       max-width: 1116px;
       margin: 1rem auto 2rem;
@@ -382,7 +381,6 @@
       background: #0f5f58;
     }
 
-    /* Info & AdSense Compliance Section */
     .info-grid {
       max-width: 1116px;
       margin: 1rem auto 2.5rem;
@@ -435,13 +433,13 @@
       <a href="#currency-tool">Currency</a>
       <a href="#qr-tool">QR Generator</a>
       <a href="#ai-assistant">AI Info</a>
-      <a href="#legal-info">About & Privacy</a>
+      <a href="#legal-info">About &amp; Privacy</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h1>9 Free Online Tools, Live Currency & AI Info</h1>
-    <p>Fast, accurate, and 100% free browser tools — built for daily calculations, conversions, and instant answers.</p>
+    <h1>9 Free Online Tools, Live Currency &amp; AI Info</h1>
+    <p>Fast, accurate, and 100% free browser tools &mdash; built for daily calculations, conversions, and instant answers.</p>
   </section>
 
   <div class="ad-slot">
@@ -450,22 +448,20 @@
 
   <main class="container" id="tools-grid">
 
-    <!-- 1. AGE CALCULATOR -->
     <div class="tool-card" id="age-tool">
       <div>
         <h2>1. Exact Age Calculator</h2>
         <p class="desc">Find your exact age in years, months, and days.</p>
         <label for="dob">Date of Birth:</label>
         <input type="date" id="dob" />
-        <button onclick="calculateAge()">Calculate Age</button>
+        <button type="button" onclick="calculateAge()">Calculate Age</button>
       </div>
       <div class="result-box" id="age-result">Your exact age will appear here.</div>
     </div>
 
-    <!-- 2. WORD COUNTER -->
     <div class="tool-card" id="word-tool">
       <div>
-        <h2>2. Word & Character Counter</h2>
+        <h2>2. Word &amp; Character Counter</h2>
         <p class="desc">Count words, characters, and sentences in real time.</p>
         <textarea id="text-input" rows="4" placeholder="Type or paste text here..." oninput="countText()"></textarea>
       </div>
@@ -476,7 +472,6 @@
       </div>
     </div>
 
-    <!-- 3. PASSWORD GENERATOR -->
     <div class="tool-card" id="pass-tool">
       <div>
         <h2>3. Strong Password Generator</h2>
@@ -487,16 +482,15 @@
           <label><input type="checkbox" id="inc-numbers" checked /> Numbers</label>
           <label><input type="checkbox" id="inc-symbols" checked /> Symbols</label>
         </div>
-        <button onclick="generatePassword()">Generate Password</button>
+        <button type="button" onclick="generatePassword()">Generate Password</button>
       </div>
       <div class="result-box" id="pass-result">Click generate to create password</div>
     </div>
 
-    <!-- 4. CURRENCY CONVERTER -->
     <div class="tool-card" id="currency-tool">
       <div>
         <h2>4. Worldwide Currency Converter</h2>
-        <p class="desc">Live rates for USD, PKR, SAR, AED, EUR, GBP & more.</p>
+        <p class="desc">Live rates for USD, PKR, SAR, AED, EUR, GBP &amp; more.</p>
         <label for="amount">Amount:</label>
         <input type="number" id="amount" value="100" min="0" step="any" oninput="convertCurrency()" />
         <div class="currency-row">
@@ -504,13 +498,13 @@
             <label for="from-curr">From:</label>
             <select id="from-curr" onchange="convertCurrency()"></select>
           </div>
-          <button type="button" class="swap-btn" onclick="swapCurrencies()">⇄</button>
+          <button type="button" class="swap-btn" onclick="swapCurrencies()">&#8644;</button>
           <div>
             <label for="to-curr">To:</label>
             <select id="to-curr" onchange="convertCurrency()"></select>
           </div>
         </div>
-        <button onclick="convertCurrency()">Convert Now</button>
+        <button type="button" onclick="convertCurrency()">Convert Now</button>
       </div>
       <div class="result-box" id="currency-result">
         Loading live rates...
@@ -518,10 +512,9 @@
       </div>
     </div>
 
-    <!-- 5. PERCENTAGE & DISCOUNT CALCULATOR -->
     <div class="tool-card" id="percent-tool">
       <div>
-        <h2>5. Percentage & Discount Calculator</h2>
+        <h2>5. Percentage &amp; Discount Calculator</h2>
         <p class="desc">Calculate exam percentages or shopping discounts easily.</p>
         <div class="two-col">
           <div>
@@ -533,15 +526,14 @@
             <input type="number" id="perc-total" value="5000" step="any" />
           </div>
         </div>
-        <button onclick="calculatePercentage()">Calculate</button>
+        <button type="button" onclick="calculatePercentage()">Calculate</button>
       </div>
       <div class="result-box" id="perc-result">20% of 5,000 = 1,000 (After discount: 4,000)</div>
     </div>
 
-    <!-- 6. BMI CALCULATOR -->
     <div class="tool-card" id="bmi-tool">
       <div>
-        <h2>6. BMI & Fitness Calculator</h2>
+        <h2>6. BMI &amp; Fitness Calculator</h2>
         <p class="desc">Check your Body Mass Index and healthy weight status.</p>
         <div class="two-col">
           <div>
@@ -553,12 +545,11 @@
             <input type="number" id="height-cm" placeholder="e.g. 172" step="any" />
           </div>
         </div>
-        <button onclick="calculateBMI()">Check BMI</button>
+        <button type="button" onclick="calculateBMI()">Check BMI</button>
       </div>
-      <div class="result-box" id="bmi-result">Enter weight & height to check BMI.</div>
+      <div class="result-box" id="bmi-result">Enter weight &amp; height to check BMI.</div>
     </div>
 
-    <!-- 7. LOAN / EMI CALCULATOR -->
     <div class="tool-card" id="emi-tool">
       <div>
         <h2>7. Loan / Monthly EMI Calculator</h2>
@@ -575,40 +566,38 @@
             <input type="number" id="loan-months" value="12" />
           </div>
         </div>
-        <button onclick="calculateEMI()">Calculate EMI</button>
+        <button type="button" onclick="calculateEMI()">Calculate EMI</button>
       </div>
       <div class="result-box" id="emi-result">Click calculate to see monthly EMI.</div>
     </div>
 
-    <!-- 8. UNIT CONVERTER -->
     <div class="tool-card" id="unit-tool">
       <div>
         <h2>8. Quick Unit Converter</h2>
         <p class="desc">Convert length, weight, and temperature units instantly.</p>
         <label for="unit-type">Conversion Type:</label>
         <select id="unit-type" onchange="convertUnit()">
-          <option value="km-mi">Kilometers → Miles</option>
-          <option value="mi-km">Miles → Kilometers</option>
-          <option value="kg-lb">Kilograms → Pounds (lbs)</option>
-          <option value="lb-kg">Pounds (lbs) → Kilograms</option>
-          <option value="c-f">Celsius (°C) → Fahrenheit (°F)</option>
-          <option value="f-c">Fahrenheit (°F) → Celsius (°C)</option>
+          <option value="km-mi">Kilometers &rarr; Miles</option>
+          <option value="mi-km">Miles &rarr; Kilometers</option>
+          <option value="kg-lb">Kilograms &rarr; Pounds (lbs)</option>
+          <option value="lb-kg">Pounds (lbs) &rarr; Kilograms</option>
+          <option value="c-f">Celsius (&deg;C) &rarr; Fahrenheit (&deg;F)</option>
+          <option value="f-c">Fahrenheit (&deg;F) &rarr; Celsius (&deg;C)</option>
         </select>
         <label for="unit-val">Enter Value:</label>
         <input type="number" id="unit-val" value="10" step="any" oninput="convertUnit()" />
-        <button onclick="convertUnit()">Convert Unit</button>
+        <button type="button" onclick="convertUnit()">Convert Unit</button>
       </div>
       <div class="result-box" id="unit-result">10 km = 6.21 Miles</div>
     </div>
 
-    <!-- 9. QR CODE GENERATOR -->
     <div class="tool-card" id="qr-tool">
       <div>
         <h2>9. Instant QR Code Generator</h2>
         <p class="desc">Turn any website link, phone number, or text into a QR code.</p>
         <label for="qr-text">Link or Text:</label>
         <input type="text" id="qr-text" placeholder="https://example.com or text..." />
-        <button onclick="generateQR()">Generate QR Code</button>
+        <button type="button" onclick="generateQR()">Generate QR Code</button>
       </div>
       <div class="qr-preview" id="qr-output">
         <small style="color: var(--muted);">Your QR code image will appear here.</small>
@@ -617,10 +606,9 @@
 
   </main>
 
-  <!-- 10. AI INFO ASSISTANT -->
   <section class="ai-section" id="ai-assistant">
     <div class="ai-header">
-      <h2>10. AI Info & Quick Answer Assistant</h2>
+      <h2>10. AI Info &amp; Quick Answer Assistant</h2>
       <span class="badge">24/7 Instant Helper</span>
     </div>
     <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: 0.75rem;">
@@ -648,7 +636,6 @@
     Advertisement Space (Bottom Responsive Banner)
   </div>
 
-  <!-- ABOUT, PRIVACY & CONTACT (AdSense Compliance) -->
   <section class="info-grid" id="legal-info">
     <div class="info-box">
       <h3>About QuickTools Hub</h3>
@@ -659,7 +646,7 @@
       <p>Your privacy matters. Calculations (age, text count, passwords, BMI, EMI) run locally in your browser. Third-party ad partners (such as Google AdSense) may use cookies to serve relevant ads.</p>
     </div>
     <div class="info-box">
-      <h3>Disclaimer & Contact</h3>
+      <h3>Disclaimer &amp; Contact</h3>
       <p>Exchange rates and financial/health calculators are provided for informational purposes only. For feedback or business inquiries, reach out via our contact email listed on the domain.</p>
     </div>
   </section>
@@ -675,7 +662,6 @@
   </footer>
 
   <script>
-    // 1. Age Calculator
     function calculateAge() {
       const dobInput = document.getElementById("dob").value;
       const resultBox = document.getElementById("age-result");
@@ -683,7 +669,7 @@
         resultBox.textContent = "Please select your date of birth first.";
         return;
       }
-      const dob = new Date(dobInput);
+      const dob = new Date(dobInput + "T00:00:00");
       const today = new Date();
       if (dob > today) {
         resultBox.textContent = "Date of birth cannot be in the future.";
@@ -704,22 +690,20 @@
       resultBox.textContent = `${years} Years, ${months} Months, ${days} Days`;
     }
 
-    // 2. Word Counter
     function countText() {
       const text = document.getElementById("text-input").value;
       const trimmed = text.trim();
       const words = trimmed ? trimmed.split(/\s+/).length : 0;
       const chars = text.length;
-      const sentences = trimmed ? trimmed.split(/[.!?]+/).filter(s => s.trim().length > 0).length : 0;
+      const sentences = trimmed ? trimmed.split(/[.!?]+/).filter(function(s) { return s.trim().length > 0; }).length : 0;
 
       document.getElementById("word-count").textContent = words;
       document.getElementById("char-count").textContent = chars;
       document.getElementById("sentence-count").textContent = sentences;
     }
 
-    // 3. Password Generator
     function generatePassword() {
-      const length = parseInt(document.getElementById("pass-length").value) || 14;
+      const length = parseInt(document.getElementById("pass-length").value, 10) || 14;
       const useNumbers = document.getElementById("inc-numbers").checked;
       const useSymbols = document.getElementById("inc-symbols").checked;
 
@@ -735,7 +719,6 @@
       document.getElementById("pass-result").textContent = password;
     }
 
-    // 4. Currency Converter
     const popularCurrencies = ["USD", "PKR", "SAR", "AED", "EUR", "GBP", "CAD", "AUD", "INR", "CNY", "JPY", "KWD", "QAR", "TRY"];
     let exchangeRates = {
       USD: 1, PKR: 278, SAR: 3.75, AED: 3.67, EUR: 0.92, GBP: 0.79,
@@ -749,15 +732,13 @@
       const prevFrom = fromSelect.value || "USD";
       const prevTo = toSelect.value || "PKR";
 
-      const ordered = [
-        ...popularCurrencies.filter(c => codes.includes(c)),
-        ...codes.filter(c => !popularCurrencies.includes(c)).sort()
-      ];
+      const ordered = popularCurrencies.filter(function(c) { return codes.includes(c); })
+        .concat(codes.filter(function(c) { return !popularCurrencies.includes(c); }).sort());
 
       fromSelect.innerHTML = "";
       toSelect.innerHTML = "";
 
-      ordered.forEach(code => {
+      ordered.forEach(function(code) {
         const opt1 = document.createElement("option");
         opt1.value = code;
         opt1.textContent = code;
@@ -773,21 +754,24 @@
       toSelect.value = ordered.includes(prevTo) ? prevTo : "PKR";
     }
 
-    async function loadExchangeRates() {
+    function loadExchangeRates() {
       populateCurrencyDropdowns(Object.keys(exchangeRates));
       convertCurrency();
-      try {
-        const res = await fetch("https://open.er-api.com/v6/latest/USD");
-        const data = await res.json();
-        if (data && data.result === "success" && data.rates) {
-          exchangeRates = data.rates;
-          isLiveRate = true;
-          populateCurrencyDropdowns(Object.keys(exchangeRates));
-          convertCurrency(data.time_last_update_utc);
-        }
-      } catch (err) {
-        document.getElementById("rate-status").textContent = "Reference rates loaded.";
-      }
+
+      fetch("https://open.er-api.com/v6/latest/USD")
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (data && data.result === "success" && data.rates) {
+            exchangeRates = data.rates;
+            isLiveRate = true;
+            populateCurrencyDropdowns(Object.keys(exchangeRates));
+            convertCurrency(data.time_last_update_utc);
+          }
+        })
+        .catch(function() {
+          const statusEl = document.getElementById("rate-status");
+          if (statusEl) statusEl.textContent = "Reference rates loaded.";
+        });
     }
 
     function convertCurrency(updateTimeText) {
@@ -809,10 +793,10 @@
       const formattedConverted = converted.toLocaleString(undefined, { maximumFractionDigits: 2 });
       const formattedUnit = unitRate.toLocaleString(undefined, { maximumFractionDigits: 4 });
       const statusLabel = isLiveRate
-        ? `Live rate: 1 ${from} = ${formattedUnit} ${to}${updateTimeText ? " (" + updateTimeText.slice(0, 16) + ")" : ""}`
-        : `Reference rate: 1 ${from} = ${formattedUnit} ${to}`;
+        ? "Live rate: 1 " + from + " = " + formattedUnit + " " + to + (updateTimeText ? " (" + String(updateTimeText).slice(0, 16) + ")" : "")
+        : "Reference rate: 1 " + from + " = " + formattedUnit + " " + to;
 
-      resultBox.innerHTML = `${amount.toLocaleString()} ${from} = ${formattedConverted} ${to}<div class="rate-note" id="rate-status">${statusLabel}</div>`;
+      resultBox.innerHTML = amount.toLocaleString() + " " + from + " = " + formattedConverted + " " + to + '<div class="rate-note" id="rate-status">' + statusLabel + "</div>";
     }
 
     function swapCurrencies() {
@@ -824,13 +808,5 @@
       convertCurrency();
     }
 
-    // 5. Percentage & Discount
     function calculatePercentage() {
-      const perc = parseFloat(document.getElementById("perc-val").value);
-      const total = parseFloat(document.getElementById("perc-total").value);
-      const box = document.getElementById("perc-result");
-      if (isNaN(perc) || isNaN(total)) {
-        box.textContent = "Please enter valid numbers.";
-        return;
-      }
-      const part = (perc / 100) * total;
+      const perc = parseFloat(document.getElementById("

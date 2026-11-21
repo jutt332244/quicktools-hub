@@ -662,151 +662,280 @@
   </footer>
 
   <script>
-    function calculateAge() {
-      const dobInput = document.getElementById("dob").value;
-      const resultBox = document.getElementById("age-result");
-      if (!dobInput) {
-        resultBox.textContent = "Please select your date of birth first.";
-        return;
-      }
-      const dob = new Date(dobInput + "T00:00:00");
-      const today = new Date();
-      if (dob > today) {
-        resultBox.textContent = "Date of birth cannot be in the future.";
-        return;
-      }
-      let years = today.getFullYear() - dob.getFullYear();
-      let months = today.getMonth() - dob.getMonth();
-      let days = today.getDate() - dob.getDate();
-
-      if (days < 0) {
-        months--;
-        days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
-      }
-      if (months < 0) {
-        years--;
-        months += 12;
-      }
-      resultBox.textContent = `${years} Years, ${months} Months, ${days} Days`;
+  function calculateAge() {
+    const dobInput = document.getElementById("dob").value;
+    const resultBox = document.getElementById("age-result");
+    if (!dobInput) {
+      resultBox.textContent = "Please select your date of birth first.";
+      return;
     }
-
-    function countText() {
-      const text = document.getElementById("text-input").value;
-      const trimmed = text.trim();
-      const words = trimmed ? trimmed.split(/\s+/).length : 0;
-      const chars = text.length;
-      const sentences = trimmed ? trimmed.split(/[.!?]+/).filter(function(s) { return s.trim().length > 0; }).length : 0;
-
-      document.getElementById("word-count").textContent = words;
-      document.getElementById("char-count").textContent = chars;
-      document.getElementById("sentence-count").textContent = sentences;
+    const dob = new Date(dobInput + "T00:00:00");
+    const today = new Date();
+    if (dob > today) {
+      resultBox.textContent = "Date of birth cannot be in the future.";
+      return;
     }
+    let years = today.getFullYear() - dob.getFullYear();
+    let months = today.getMonth() - dob.getMonth();
+    let days = today.getDate() - dob.getDate();
 
-    function generatePassword() {
-      const length = parseInt(document.getElementById("pass-length").value, 10) || 14;
-      const useNumbers = document.getElementById("inc-numbers").checked;
-      const useSymbols = document.getElementById("inc-symbols").checked;
-
-      let chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      if (useNumbers) chars += "0123456789";
-      if (useSymbols) chars += "!@#$%^&*()_+-=[]{}|;:,.<>?";
-
-      let password = "";
-      const safeLen = Math.min(Math.max(length, 8), 32);
-      for (let i = 0; i < safeLen; i++) {
-        password += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      document.getElementById("pass-result").textContent = password;
+    if (days < 0) {
+      months--;
+      days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
     }
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+    resultBox.textContent = years + " Years, " + months + " Months, " + days + " Days";
+  }
 
-    const popularCurrencies = ["USD", "PKR", "SAR", "AED", "EUR", "GBP", "CAD", "AUD", "INR", "CNY", "JPY", "KWD", "QAR", "TRY"];
-    let exchangeRates = {
-      USD: 1, PKR: 278, SAR: 3.75, AED: 3.67, EUR: 0.92, GBP: 0.79,
-      CAD: 1.36, AUD: 1.52, INR: 83.5, CNY: 7.2, JPY: 155, KWD: 0.31, QAR: 3.64, TRY: 34.0
-    };
-    let isLiveRate = false;
+  function countText() {
+    const text = document.getElementById("text-input").value;
+    const trimmed = text.trim();
+    const words = trimmed ? trimmed.split(/\s+/).length : 0;
+    const chars = text.length;
+    const sentences = trimmed ? trimmed.split(/[.!?]+/).filter(function(s) { return s.trim().length > 0; }).length : 0;
 
-    function populateCurrencyDropdowns(codes) {
-      const fromSelect = document.getElementById("from-curr");
-      const toSelect = document.getElementById("to-curr");
-      const prevFrom = fromSelect.value || "USD";
-      const prevTo = toSelect.value || "PKR";
+    document.getElementById("word-count").textContent = words;
+    document.getElementById("char-count").textContent = chars;
+    document.getElementById("sentence-count").textContent = sentences;
+  }
 
-      const ordered = popularCurrencies.filter(function(c) { return codes.includes(c); })
-        .concat(codes.filter(function(c) { return !popularCurrencies.includes(c); }).sort());
+  function generatePassword() {
+    const length = parseInt(document.getElementById("pass-length").value, 10) || 14;
+    const useNumbers = document.getElementById("inc-numbers").checked;
+    const useSymbols = document.getElementById("inc-symbols").checked;
 
-      fromSelect.innerHTML = "";
-      toSelect.innerHTML = "";
+    let chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (useNumbers) chars += "0123456789";
+    if (useSymbols) chars += "!@#$%^&*()_+-=[]{}|;:,.<>?";
 
-      ordered.forEach(function(code) {
-        const opt1 = document.createElement("option");
-        opt1.value = code;
-        opt1.textContent = code;
-        fromSelect.appendChild(opt1);
+    let password = "";
+    const safeLen = Math.min(Math.max(length, 8), 32);
+    for (let i = 0; i < safeLen; i++) {
+      password += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    document.getElementById("pass-result").textContent = password;
+  }
 
-        const opt2 = document.createElement("option");
-        opt2.value = code;
-        opt2.textContent = code;
-        toSelect.appendChild(opt2);
+  const popularCurrencies = ["USD", "PKR", "SAR", "AED", "EUR", "GBP", "CAD", "AUD", "INR", "CNY", "JPY", "KWD", "QAR", "TRY"];
+  let exchangeRates = {
+    USD: 1, PKR: 278, SAR: 3.75, AED: 3.67, EUR: 0.92, GBP: 0.79,
+    CAD: 1.36, AUD: 1.52, INR: 83.5, CNY: 7.2, JPY: 155, KWD: 0.31, QAR: 3.64, TRY: 34.0
+  };
+  let isLiveRate = false;
+
+  function populateCurrencyDropdowns(codes) {
+    const fromSelect = document.getElementById("from-curr");
+    const toSelect = document.getElementById("to-curr");
+    const prevFrom = fromSelect.value || "USD";
+    const prevTo = toSelect.value || "PKR";
+
+    const ordered = popularCurrencies.filter(function(c) { return codes.includes(c); })
+      .concat(codes.filter(function(c) { return !popularCurrencies.includes(c); }).sort());
+
+    fromSelect.innerHTML = "";
+    toSelect.innerHTML = "";
+
+    ordered.forEach(function(code) {
+      const opt1 = document.createElement("option");
+      opt1.value = code;
+      opt1.textContent = code;
+      fromSelect.appendChild(opt1);
+
+      const opt2 = document.createElement("option");
+      opt2.value = code;
+      opt2.textContent = code;
+      toSelect.appendChild(opt2);
+    });
+
+    fromSelect.value = ordered.includes(prevFrom) ? prevFrom : "USD";
+    toSelect.value = ordered.includes(prevTo) ? prevTo : "PKR";
+  }
+
+  function loadExchangeRates() {
+    populateCurrencyDropdowns(Object.keys(exchangeRates));
+    convertCurrency();
+
+    fetch("https://open.er-api.com/v6/latest/USD")
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data && data.result === "success" && data.rates) {
+          exchangeRates = data.rates;
+          isLiveRate = true;
+          populateCurrencyDropdowns(Object.keys(exchangeRates));
+          convertCurrency(data.time_last_update_utc);
+        }
+      })
+      .catch(function() {
+        const statusEl = document.getElementById("rate-status");
+        if (statusEl) statusEl.textContent = "Reference rates loaded.";
       });
+  }
 
-      fromSelect.value = ordered.includes(prevFrom) ? prevFrom : "USD";
-      toSelect.value = ordered.includes(prevTo) ? prevTo : "PKR";
+  function convertCurrency(updateTimeText) {
+    const amount = parseFloat(document.getElementById("amount").value);
+    const from = document.getElementById("from-curr").value;
+    const to = document.getElementById("to-curr").value;
+    const resultBox = document.getElementById("currency-result");
+
+    if (isNaN(amount) || amount < 0) {
+      resultBox.innerHTML = 'Enter a valid positive amount.<div class="rate-note" id="rate-status"></div>';
+      return;
     }
 
-    function loadExchangeRates() {
-      populateCurrencyDropdowns(Object.keys(exchangeRates));
-      convertCurrency();
+    const rateFrom = exchangeRates[from] || 1;
+    const rateTo = exchangeRates[to] || 1;
+    const converted = (amount / rateFrom) * rateTo;
+    const unitRate = (1 / rateFrom) * rateTo;
 
-      fetch("https://open.er-api.com/v6/latest/USD")
-        .then(function(res) { return res.json(); })
-        .then(function(data) {
-          if (data && data.result === "success" && data.rates) {
-            exchangeRates = data.rates;
-            isLiveRate = true;
-            populateCurrencyDropdowns(Object.keys(exchangeRates));
-            convertCurrency(data.time_last_update_utc);
-          }
-        })
-        .catch(function() {
-          const statusEl = document.getElementById("rate-status");
-          if (statusEl) statusEl.textContent = "Reference rates loaded.";
-        });
+    const formattedConverted = converted.toLocaleString(undefined, { maximumFractionDigits: 2 });
+    const formattedUnit = unitRate.toLocaleString(undefined, { maximumFractionDigits: 4 });
+    const statusLabel = isLiveRate
+      ? "Live rate: 1 " + from + " = " + formattedUnit + " " + to + (updateTimeText ? " (" + String(updateTimeText).slice(0, 16) + ")" : "")
+      : "Reference rate: 1 " + from + " = " + formattedUnit + " " + to;
+
+    resultBox.innerHTML = amount.toLocaleString() + " " + from + " = " + formattedConverted + " " + to + '<div class="rate-note" id="rate-status">' + statusLabel + "</div>";
+  }
+
+  function swapCurrencies() {
+    const fromEl = document.getElementById("from-curr");
+    const toEl = document.getElementById("to-curr");
+    const temp = fromEl.value;
+    fromEl.value = toEl.value;
+    toEl.value = temp;
+    convertCurrency();
+  }
+
+  function calculatePercentage() {
+    const perc = parseFloat(document.getElementById("perc-val").value);
+    const total = parseFloat(document.getElementById("perc-total").value);
+    const box = document.getElementById("perc-result");
+    if (isNaN(perc) || isNaN(total)) {
+      box.textContent = "Please enter valid numbers.";
+      return;
+    }
+    const part = (perc / 100) * total;
+    const afterDiscount = total - part;
+    box.textContent = perc + "% of " + total.toLocaleString() + " = " + part.toLocaleString(undefined, { maximumFractionDigits: 2 }) + " (After discount: " + afterDiscount.toLocaleString(undefined, { maximumFractionDigits: 2 }) + ")";
+  }
+
+  function calculateBMI() {
+    const w = parseFloat(document.getElementById("weight-kg").value);
+    const hCm = parseFloat(document.getElementById("height-cm").value);
+    const box = document.getElementById("bmi-result");
+    if (!w || !hCm || w <= 0 || hCm <= 0) {
+      box.textContent = "Enter valid weight (kg) and height (cm).";
+      return;
+    }
+    const hM = hCm / 100;
+    const bmi = w / (hM * hM);
+    let status = "Normal weight";
+    if (bmi < 18.5) status = "Underweight";
+    else if (bmi >= 25 && bmi < 30) status = "Overweight";
+    else if (bmi >= 30) status = "Obese";
+
+    box.textContent = "BMI: " + bmi.toFixed(1) + " — Category: " + status;
+  }
+
+  function calculateEMI() {
+    const p = parseFloat(document.getElementById("loan-amount").value);
+    const annualRate = parseFloat(document.getElementById("interest-rate").value);
+    const n = parseInt(document.getElementById("loan-months").value, 10);
+    const box = document.getElementById("emi-result");
+
+    if (!p || p <= 0 || isNaN(annualRate) || annualRate < 0 || !n || n <= 0) {
+      box.textContent = "Enter valid loan amount, rate, and months.";
+      return;
+    }
+    const r = annualRate / 12 / 100;
+    const emi = r === 0 ? p / n : (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    const totalPay = emi * n;
+    box.textContent = "Monthly EMI: " + emi.toLocaleString(undefined, { maximumFractionDigits: 2 }) + " | Total: " + totalPay.toLocaleString(undefined, { maximumFractionDigits: 2 });
+  }
+
+  function convertUnit() {
+    const type = document.getElementById("unit-type").value;
+    const val = parseFloat(document.getElementById("unit-val").value);
+    const box = document.getElementById("unit-result");
+    if (isNaN(val)) {
+      box.textContent = "Enter a valid number.";
+      return;
+    }
+    let out = "";
+    if (type === "km-mi") out = val + " km = " + (val * 0.621371).toFixed(2) + " Miles";
+    if (type === "mi-km") out = val + " Miles = " + (val * 1.60934).toFixed(2) + " km";
+    if (type === "kg-lb") out = val + " kg = " + (val * 2.20462).toFixed(2) + " lbs";
+    if (type === "lb-kg") out = val + " lbs = " + (val * 0.453592).toFixed(2) + " kg";
+    if (type === "c-f") out = val + " °C = " + ((val * 9 / 5) + 32).toFixed(2) + " °F";
+    if (type === "f-c") out = val + " °F = " + ((val - 32) * 5 / 9).toFixed(2) + " °C";
+    box.textContent = out;
+  }
+
+  function generateQR() {
+    const text = document.getElementById("qr-text").value.trim();
+    const output = document.getElementById("qr-output");
+    if (!text) {
+      output.innerHTML = '<small style="color: #dc2626;">Please enter a link or text first.</small>';
+      return;
+    }
+    const qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=" + encodeURIComponent(text);
+    output.innerHTML = '<img src="' + qrUrl + '" alt="Generated QR Code" /><div style="margin-top:0.4rem;"><a href="' + qrUrl + '" target="_blank" style="font-size:0.8rem; color:var(--primary);">Open / Save QR Image</a></div>';
+  }
+
+  function askQuick(text) {
+    document.getElementById("ai-question").value = text;
+    sendAIQuestion();
+  }
+
+  function generateSmartAnswer(q) {
+    const lower = q.toLowerCase().trim();
+
+    if (/^[\d\s+\-*/().%]+$/.test(lower) && /\d/.test(lower)) {
+      try {
+        const cleaned = lower.replace(/%/g, "/100");
+        const val = Function('"use strict"; return (' + cleaned + ')')();
+        if (typeof val === "number" && isFinite(val)) {
+          return "Calculation result: " + val;
+        }
+      } catch (e) {}
     }
 
-    function convertCurrency(updateTimeText) {
-      const amount = parseFloat(document.getElementById("amount").value);
-      const from = document.getElementById("from-curr").value;
-      const to = document.getElementById("to-curr").value;
-      const resultBox = document.getElementById("currency-result");
-
-      if (isNaN(amount) || amount < 0) {
-        resultBox.innerHTML = 'Enter a valid positive amount.<div class="rate-note" id="rate-status"></div>';
-        return;
-      }
-
-      const rateFrom = exchangeRates[from] || 1;
-      const rateTo = exchangeRates[to] || 1;
-      const converted = (amount / rateFrom) * rateTo;
-      const unitRate = (1 / rateFrom) * rateTo;
-
-      const formattedConverted = converted.toLocaleString(undefined, { maximumFractionDigits: 2 });
-      const formattedUnit = unitRate.toLocaleString(undefined, { maximumFractionDigits: 4 });
-      const statusLabel = isLiveRate
-        ? "Live rate: 1 " + from + " = " + formattedUnit + " " + to + (updateTimeText ? " (" + String(updateTimeText).slice(0, 16) + ")" : "")
-        : "Reference rate: 1 " + from + " = " + formattedUnit + " " + to;
-
-      resultBox.innerHTML = amount.toLocaleString() + " " + from + " = " + formattedConverted + " " + to + '<div class="rate-note" id="rate-status">' + statusLabel + "</div>";
+    if (lower.includes("exchange rate") || lower.includes("currency")) {
+      return "Exchange rates reflect how much one currency is worth in another and update automatically based on global market trading. Use Tool #4 above to convert USD, PKR, SAR, AED, EUR, GBP, and more.";
     }
-
-    function swapCurrencies() {
-      const fromEl = document.getElementById("from-curr");
-      const toEl = document.getElementById("to-curr");
-      const temp = fromEl.value;
-      fromEl.value = toEl.value;
-      toEl.value = temp;
-      convertCurrency();
+    if (lower.includes("bmi")) {
+      return "Standard adult BMI ranges:\n• Underweight: Below 18.5\n• Normal weight: 18.5 – 24.9\n• Overweight: 25.0 – 29.9\n• Obese: 30.0 and above\nUse Tool #6 above to check yours.";
     }
+    if (lower.includes("password")) {
+      return "Use at least 12–16 characters mixing uppercase, lowercase, numbers, and symbols. Never reuse the same password across important accounts.";
+    }
+    if (lower.includes("tool") || lower.includes("list") || lower.includes("website")) {
+      return "This site includes 9 free tools:\n1. Exact Age Calculator\n2. Word & Character Counter\n3. Strong Password Generator\n4. Live Currency Converter\n5. Percentage & Discount Calculator\n6. BMI & Fitness Calculator\n7. Loan / Monthly EMI Calculator\n8. Quick Unit Converter\n9. Instant QR Code Generator";
+    }
+return 'You asked: "' + q + '"\n\nTip: You can type any math expression here (like 1250 * 18%), or use the 9 tools above for age, word count, passwords, live currency rates, discounts, BMI, EMI, units, and QR codes.';
+     }
+  function sendAIQuestion() {
+    const input = document.getElementById("ai-question");
+    const chatBox = document.getElementById("ai-chat");
+    const question = input.value.trim();
+    if (!question) return;
 
-    function calculatePercentage() {
-      const perc = parseFloat(document.getElementById("
+    const userDiv = document.createElement("div");
+    userDiv.className = "msg msg-user";
+    userDiv.textContent = question;
+    chatBox.appendChild(userDiv);
+
+    const answer = generateSmartAnswer(question);
+    const aiDiv = document.createElement("div");
+    aiDiv.className = "msg msg-ai";
+    aiDiv.textContent = answer;
+    chatBox.appendChild(aiDiv);
+
+    input.value = "";
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  loadExchangeRates();
+</script>

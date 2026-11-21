@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Word &amp; Character Counter - Real-Time Text Stats | QuickTools Hub</title>
+  <meta name="description" content="Count words, characters, sentences, paragraphs, and estimated reading time online for free. Includes writing tips and FAQs." />
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-soft: rgba(79, 70, 229, 0.08);
+      --accent: #0d9488;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 12% 0%, rgba(79, 70, 229, 0.09) 0%, transparent 42%),
+        radial-gradient(circle at 88% 8%, rgba(13, 148, 136, 0.08) 0%, transparent 38%);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.95rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-decoration: none;
+      background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .page-wrap {
+      max-width: 920px;
+      margin: 2rem auto 3rem;
+      padding: 0 1.2rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 3vw, 2.15rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 1.3rem;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      font-size: 0.96rem;
+      background: #f8fafc;
+      resize: vertical;
+      min-height: 180px;
+      margin-bottom: 1rem;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: #ffffff;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .stat-item {
+      background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+      padding: 0.85rem;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid #e2e8f0;
+    }
+
+    .stat-item span {
+      display: block;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .stat-item small {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .action-row {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
+      color: #ffffff;
+      border: none;
+      padding: 0.68rem 1.1rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: #eef2ff;
+      color: var(--primary);
+      border: 1px solid #c7d2fe;
+    }
+
+    .ad-slot {
+      margin: 1.5rem 0;
+      padding: 0.95rem 1rem;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px dashed #cbd5e1;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.82rem;
+      border-radius: 12px;
+    }
+
+    .guide h2 {
+      font-size: 1.22rem;
+      margin: 1.1rem 0 0.45rem;
+    }
+
+    .guide p, .guide li {
+      color: #334155;
+      font-size: 0.94rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .guide ul {
+      padding-left: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.8rem 1rem;
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">QuickTools Hub</a>
+    <nav>
+      <a href="index.html">All Tools</a>
+      <a href="age-calculator.html">Age Calculator</a>
+      <a href="index.html#currency-tool">Currency</a>
+      <a href="index.html#ai-assistant">AI Info</a>
+    </nav>
+  </header>
+
+  <main class="page-wrap">
+    <a href="index.html" class="back-link">← Back to All 9 Tools</a>
+
+    <div class="ad-slot">Advertisement Space (Top Banner - Responsive)</div>
+
+    <section class="card">
+      <h1>Word &amp; Character Counter</h1>
+      <p class="subtitle">Type or paste any text to count words, characters, sentences, paragraphs, and estimated reading time in real time.</p>
+
+      <textarea id="full-text-input" placeholder="Type or paste your article, essay, caption, or draft here..." oninput="updateFullStats()"></textarea>
+
+      <div class="stats-grid">
+        <div class="stat-item"><span id="wc-words">0</span><small>Words</small></div>
+        <div class="stat-item"><span id="wc-chars">0</span><small>Characters</small></div>
+        <div class="stat-item"><span id="wc-sentences">0</span><small>Sentences</small></div>
+        <div class="stat-item"><span id="wc-paragraphs">0</span><small>Paragraphs</small></div>
+        <div class="stat-item"><span id="wc-readtime">0 min</span><small>Reading Time</small></div>
+      </div>
+
+      <div class="action-row">
+        <button type="button" onclick="copyText()">Copy Text</button>
+        <button type="button" class="secondary" onclick="clearText()">Clear Text</button>
+      </div>
+    </section>
+
+    <div class="ad-slot">Advertisement Space (Mid Content Banner - Responsive)</div>
+
+    <article class="card guide">
+      <h2>Why Word &amp; Character Counts Matter</h2>
+      <p>Different platforms and writing formats have clear length expectations. Tracking word and character counts helps keep essays focused, titles readable, and social posts within character limits.</p>
+
+      <h2>Helpful Length Guidelines</h2>
+      <ul>
+        <li><strong>Blog Posts &amp; Guides:</strong> Clear, thorough articles often range from 800 to 2,000+ words depending on topic depth.</li>
+        <li><strong>Meta Descriptions &amp; Headlines:</strong> Short, descriptive summaries work best when concise and easy to scan.</li>
+        <li><strong>Reading Time Estimate:</strong> Estimated at roughly 200 words per minute for an average reader.</li>
+      </ul>
+
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Does this tool save my text?</strong><br />No, all word and character counting runs locally inside your browser.</p>
+      <p><strong>How are sentences and paragraphs counted?</strong><br />Sentences are split by ending punctuation (. ! ?), while paragraphs are counted from non-empty text blocks.</p>
+    </article>
+
+    <div class="ad-slot">Advertisement Space (Bottom Banner - Responsive)</div>
+  </main>
+
+  <footer>
+    &copy; 2026 QuickTools Hub. All rights reserved. &middot; <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">Home</a>
+  </footer>
+
+  <script>
+    function updateFullStats() {
+      const text = document.getElementById("full-text-input").value;
+      const trimmed = text.trim();
+      const words = trimmed ? trimmed.split(/\s+/).length : 0;
+      const chars = text.length;
+      const sentences = trimmed ? text.split(/[.!?]+/).filter(function(s) { return s.trim().length > 0; }).length : 0;
+      const paragraphs = trimmed ? text.split(/\n+/).filter(function(p) { return p.trim().length > 0; }).length : 0;
+      const minutes = words === 0 ? "0 min" : Math.max(1, Math.ceil(words / 200)) + " min";
+
+      document.getElementById("wc-words").textContent = words.toLocaleString();
+      document.getElementById("wc-chars").textContent = chars.toLocaleString();
+      document.getElementById("wc-sentences").textContent = sentences.toLocaleString();
+      document.getElementById("wc-paragraphs").textContent = paragraphs.toLocaleString();
+      document.getElementById("wc-readtime").textContent = minutes;
+    }
+
+    function copyText() {
+      const el = document.getElementById("full-text-input");
+      if (!el.value) return;
+      navigator.clipboard.writeText(el.value);
+    }
+
+    function clearText() {
+      document.getElementById("full-text-input").value = "";
+      updateFullStats();
+    }
+  </script>
+</body>
+</html>

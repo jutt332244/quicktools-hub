@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Unit Converter - Length, Weight &amp; Temperature | QuickTools Hub</title>
+  <meta name="description" content="Convert kilometers to miles, kilograms to pounds, and Celsius to Fahrenheit online for free with formulas and quick reference." />
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-soft: rgba(79, 70, 229, 0.08);
+      --accent: #0d9488;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 12% 0%, rgba(79, 70, 229, 0.09) 0%, transparent 42%),
+        radial-gradient(circle at 88% 8%, rgba(13, 148, 136, 0.08) 0%, transparent 38%);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.95rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-decoration: none;
+      background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .page-wrap {
+      max-width: 920px;
+      margin: 2rem auto 3rem;
+      padding: 0 1.2rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 3vw, 2.15rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 1.3rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #334155;
+    }
+
+    select, input[type="number"] {
+      width: 100%;
+      padding: 0.7rem 0.85rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      margin-bottom: 0.85rem;
+      background: #f8fafc;
+    }
+
+    button.primary-btn {
+      background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
+      color: #ffffff;
+      border: none;
+      padding: 0.78rem 1.2rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .result-box {
+      margin-top: 1rem;
+      padding: 0.95rem 1rem;
+      background: linear-gradient(135deg, #eef2ff 0%, #f0f9ff 100%);
+      border: 1px solid #dbeafe;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.02rem;
+      min-height: 52px;
+    }
+
+    .sub-result {
+      margin-top: 0.4rem;
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: #475569;
+    }
+
+    .ad-slot {
+      margin: 1.5rem 0;
+      padding: 0.95rem 1rem;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px dashed #cbd5e1;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.82rem;
+      border-radius: 12px;
+    }
+
+    .guide h2 {
+      font-size: 1.22rem;
+      margin: 1.1rem 0 0.45rem;
+    }
+
+    .guide p, .guide li {
+      color: #334155;
+      font-size: 0.94rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .guide ul {
+      padding-left: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.8rem 1rem;
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">QuickTools Hub</a>
+    <nav>
+      <a href="index.html">All Tools</a>
+      <a href="percentage-calculator.html">Percentage</a>
+      <a href="bmi-calculator.html">BMI Calculator</a>
+      <a href="emi-calculator.html">EMI Calculator</a>
+    </nav>
+  </header>
+
+  <main class="page-wrap">
+    <a href="index.html" class="back-link">← Back to All 9 Tools</a>
+
+    <div class="ad-slot">Advertisement Space (Top Banner - Responsive)</div>
+
+    <section class="card">
+      <h1>Quick Unit Converter</h1>
+      <p class="subtitle">Convert distance, weight, and temperature units instantly with clear formulas and reverse references.</p>
+
+      <div class="two-col">
+        <div>
+          <label for="full-unit-type">Conversion Type:</label>
+          <select id="full-unit-type" onchange="convertFullUnit()">
+            <option value="km-mi">Kilometers &rarr; Miles</option>
+            <option value="mi-km">Miles &rarr; Kilometers</option>
+            <option value="kg-lb">Kilograms &rarr; Pounds (lbs)</option>
+            <option value="lb-kg">Pounds (lbs) &rarr; Kilograms</option>
+            <option value="c-f">Celsius (&deg;C) &rarr; Fahrenheit (&deg;F)</option>
+            <option value="f-c">Fahrenheit (&deg;F) &rarr; Celsius (&deg;C)</option>
+          </select>
+        </div>
+        <div>
+          <label for="full-unit-val">Enter Value:</label>
+          <input type="number" id="full-unit-val" value="10" step="any" oninput="convertFullUnit()" />
+        </div>
+      </div>
+
+      <button type="button" class="primary-btn" onclick="convertFullUnit()">Convert Unit</button>
+
+      <div class="result-box">
+        <span id="full-unit-main">10 km = 6.21 Miles</span>
+        <div class="sub-result" id="full-unit-sub"></div>
+      </div>
+    </section>
+
+    <div class="ad-slot">Advertisement Space (Mid Content Banner - Responsive)</div>
+
+    <article class="card guide">
+      <h2>Common Conversion Formulas</h2>
+      <ul>
+        <li><strong>Kilometers &harr; Miles:</strong> 1 km &approx; 0.621371 miles; 1 mile = 1.60934 km.</li>
+        <li><strong>Kilograms &harr; Pounds:</strong> 1 kg &approx; 2.20462 lbs; 1 lb = 0.453592 kg.</li>
+        <li><strong>Celsius &harr; Fahrenheit:</strong> &deg;F = (&deg;C &times; 9/5) + 32; &deg;C = (&deg;F &minus; 32) &times; 5/9.</li>
+      </ul>
+
+      <h2>Everyday Uses</h2>
+      <p>Use this converter for travel distances, fitness tracking, shipping weights, recipes, and international weather readings.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Can I convert negative temperatures?</strong><br />Yes, negative values such as &minus;10&deg;C or &minus;5&deg;F work automatically.</p>
+      <p><strong>How many decimal places are shown?</strong><br />Results are rounded cleanly up to 2 decimal places for quick reading.</p>
+    </article>
+
+    <div class="ad-slot">Advertisement Space (Bottom Banner - Responsive)</div>
+  </main>
+
+  <footer>
+    &copy; 2026 QuickTools Hub. All rights reserved. &middot; <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">Home</a>
+  </footer>
+
+  <script>
+    function convertFullUnit() {
+      const type = document.getElementById("full-unit-type").value;
+      const val = parseFloat(document.getElementById("full-unit-val").value);
+      const mainEl = document.getElementById("full-unit-main");
+      const subEl = document.getElementById("full-unit-sub");
+
+      if (isNaN(val)) {
+        mainEl.textContent = "Please enter a valid number.";
+        subEl.textContent = "";
+        return;
+      }
+
+      let mainText = "";
+      let subText = "";
+
+      if (type === "km-mi") {
+        mainText = val + " km = " + (val * 0.621371).toFixed(2) + " Miles";
+        subText = "Formula: kilometers × 0.621371";
+      } else if (type === "mi-km") {
+        mainText = val + " Miles = " + (val * 1.60934).toFixed(2) + " km";
+        subText = "Formula: miles × 1.60934";
+      } else if (type === "kg-lb") {
+        mainText = val + " kg = " + (val * 2.20462).toFixed(2) + " lbs";
+        subText = "Formula: kilograms × 2.20462";
+      } else if (type === "lb-kg") {
+        mainText = val + " lbs = " + (val * 0.453592).toFixed(2) + " kg";
+        subText = "Formula: pounds × 0.453592";
+      } else if (type === "c-f") {
+        const f = (val * 9) / 5 + 32;
+        mainText = val + " °C = " + f.toFixed(2) + " °F";
+        subText = "Formula: (°C × 9/5) + 32";
+      } else if (type === "f-c") {
+        const c = ((val - 32) * 5) / 9;
+        mainText = val + " °F = " + c.toFixed(2) + " °C";
+        subText = "Formula: (°F − 32) × 5/9";
+      }
+
+      mainEl.textContent = mainText;
+      subEl.textContent = subText;
+    }
+
+    convertFullUnit();
+  </script>
+</body>
+</html>

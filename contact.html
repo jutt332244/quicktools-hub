@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | QuickTools Hub</title>
+  <meta name="description" content="Get in touch with QuickTools Hub for feedback, new tool suggestions, bug reports, or general inquiries." />
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-soft: rgba(79, 70, 229, 0.08);
+      --accent: #0d9488;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 12% 0%, rgba(79, 70, 229, 0.09) 0%, transparent 42%),
+        radial-gradient(circle at 88% 8%, rgba(13, 148, 136, 0.08) 0%, transparent 38%);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.95rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-decoration: none;
+      background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .page-wrap {
+      max-width: 920px;
+      margin: 2rem auto 3rem;
+      padding: 0 1.2rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.85rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.65rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 1.35rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #334155;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      margin-bottom: 0.95rem;
+      background: #f8fafc;
+      color: var(--text);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button.primary-btn {
+      background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
+      color: #ffffff;
+      border: none;
+      padding: 0.8rem 1.25rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .notice-box {
+      margin-top: 1rem;
+      padding: 0.95rem 1rem;
+      background: linear-gradient(135deg, #eef2ff 0%, #f0f9ff 100%);
+      border: 1px solid #dbeafe;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      color: #1e293b;
+      display: none;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin: 1.25rem 0 0.45rem;
+    }
+
+    p, li {
+      color: #334155;
+      font-size: 0.94rem;
+      margin-bottom: 0.5rem;
+    }
+
+    ul {
+      padding-left: 1.25rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.8rem 1rem;
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 0.35rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">QuickTools Hub</a>
+    <nav>
+      <a href="index.html">All Tools</a>
+      <a href="about.html">About</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+
+  <main class="page-wrap">
+    <a href="index.html" class="back-link">← Back to All 9 Tools</a>
+
+    <section class="card">
+      <h1>Contact Us</h1>
+      <p class="subtitle">Have a tool suggestion, noticed an issue, or want to share feedback? Send a note below.</p>
+
+      <form onsubmit="handleContactSubmit(event)">
+        <div class="two-col">
+          <div>
+            <label for="contact-name">Your Name:</label>
+            <input type="text" id="contact-name" placeholder="Enter your name" required />
+          </div>
+          <div>
+            <label for="contact-email">Email Address:</label>
+            <input type="email" id="contact-email" placeholder="you@example.com" required />
+          </div>
+        </div>
+
+        <label for="contact-subject">Subject:</label>
+        <input type="text" id="contact-subject" placeholder="Tool suggestion, feedback, or question" required />
+
+        <label for="contact-message">Message:</label>
+        <textarea id="contact-message" placeholder="Write your message here..." required></textarea>
+
+        <button type="submit" class="primary-btn">Send Message</button>
+      </form>
+
+      <div class="notice-box" id="contact-status"></div>
+
+      <h2>What You Can Reach Out For</h2>
+      <ul>
+        <li><strong>New Tool Ideas:</strong> Suggest calculators, converters, or text helpers you would like added next.</li>
+        <li><strong>Accuracy &amp; Bug Reports:</strong> Let us know if any formula, unit conversion, or layout behaves unexpectedly.</li>
+        <li><strong>General Inquiries:</strong> Questions about our policies, tools, or future updates.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 QuickTools Hub. All rights reserved. &middot;
+    <a href="index.html">Home</a> &middot;
+    <a href="about.html">About</a> &middot;
+    <a href="privacy-policy.html">Privacy Policy</a> &middot;
+    <a href="terms.html">Terms</a> &middot;
+    <a href="contact.html">Contact</a>
+  </footer>
+
+  <script>
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById("contact-name").value.trim();
+      const box = document.getElementById("contact-status");
+      box.style.display = "block";
+      box.innerHTML =
+        "<strong>Thanks, " +
+        name.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
+        "!</strong> Your draft message has been prepared in this session. Once our official contact endpoint is connected, submissions will be delivered directly.";
+    }
+  </script>
+</body>
+</html>

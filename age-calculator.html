@@ -220,7 +220,7 @@
       <label for="dob">Select Your Date of Birth:</label>
       <input type="date" id="dob" />
       <button onclick="calculateFullAge()">Calculate Exact Age</button>
-
+<button type="button" onclick="resetAgeCalculator()" style="margin-top: 0.55rem; background: #eef2ff; color: var(--primary); border: 1px solid #c7d2fe;">Reset</button>
       <div class="result-box" id="age-result">
         Your exact age will appear here.
         <div class="extra-info" id="age-extra"></div>
@@ -245,7 +245,24 @@
       <p><strong>Is my date of birth stored on any server?</strong><br />No, all calculations run directly in your browser.</p>
     </article>
 
-    <div class="ad-slot">Advertisement Space (Bottom Banner - Responsive)</div>
+    <div class="ad-slot">Advertisement Space (Bottom Banner - Responsive)</div><section class="card">
+      <h2>Related Tools You May Need</h2>
+      <p class="subtitle" style="margin-bottom: 1rem;">Explore more everyday utilities on QuickTools Hub.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0.85rem;">
+        <a href="word-counter.html" style="display: block; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); background: #f8fafc;">
+          <strong style="display: block; color: var(--primary); margin-bottom: 0.2rem;">Word Counter</strong>
+          <span style="font-size: 0.85rem; color: var(--muted);">Count words, characters &amp; lines</span>
+        </a>
+        <a href="password-generator.html" style="display: block; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); background: #f8fafc;">
+          <strong style="display: block; color: var(--primary); margin-bottom: 0.2rem;">Password Generator</strong>
+          <span style="font-size: 0.85rem; color: var(--muted);">Create strong random passwords</span>
+        </a>
+        <a href="qr-code-generator.html" style="display: block; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); background: #f8fafc;">
+          <strong style="display: block; color: var(--primary); margin-bottom: 0.2rem;">QR Code Generator</strong>
+          <span style="font-size: 0.85rem; color: var(--muted);">Create scannable QR codes</span>
+        </a>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -296,6 +313,11 @@
 
       resultBox.firstChild.textContent = years + " Years, " + months + " Months, " + days + " Days";
       extraBox.textContent = "Total days lived: " + totalDays.toLocaleString() + " days · Next birthday in: " + daysUntilBday + " days";
+    }
+    function resetAgeCalculator() {
+      document.getElementById("dob").value = "";
+      document.getElementById("age-result").firstChild.textContent = "Your exact age will appear here.";
+      document.getElementById("age-extra").textContent = "";
     }
   </script>
 </body>

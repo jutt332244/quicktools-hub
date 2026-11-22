@@ -1,18 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yourdomain.com/</loc>
+    <loc>https://www.quicktoolshubonline.com/</loc>
   </url>
   <url>
-    <loc>https://yourdomain.com/about.html</loc>
+    <loc>https://www.quicktoolshubonline.com/age-calculator.html</loc>
   </url>
   <url>
-    <loc>https://yourdomain.com/privacy-policy.html</loc>
+    <loc>https://www.quicktoolshubonline.com/word-counter.html</loc>
   </url>
   <url>
-    <loc>https://yourdomain.com/terms.html</loc>
+    <loc>https://www.quicktoolshubonline.com/password-generator.html</loc>
   </url>
   <url>
-    <loc>https://yourdomain.com/contact.html</loc>
+    <loc>https://www.quicktoolshubonline.com/currency-converter.html</loc>
+  </url>
+  <url>
+    <loc>https://www.quicktoolshubonline.com/percentage-calculator.html</loc>
+  </url>
+  <url>
+    <loc>https://www.quicktoolshubonline.com/bmi-calculator.html</loc>
+  </url>
+  <url>
+    <loc>https://www.quicktoolshubonline.com/emi-calculator.html</loc>
+  </url>
+  <url>
+    <loc>https://www.quicktoolshubonline.com/unit-converter.html</loc>
+  </url>
+  <url>
+    <loc>https://www.quicktoolshubonline.com/qr-code-generator.html</loc>
+  </url>
+  <url>
+    <loc>https://www.quicktoolshubonline.com/ai-info.html</loc>
+  </url>
+  <url>
+    <loc>https://www.quicktoolshubonline.com/about.html</loc>
+  </url>
+  <url>
+    <loc>https://www.quicktoolshubonline.com/privacy-policy.html</loc>
+  </url>
+  <url>
+    <loc>https://www.quicktoolshubonline.com/terms.html</loc>
+  </url>
+  <url>
+    <loc>https://www.quicktoolshubonline.com/contact.html</loc>
   </url>
 </urlset>

@@ -732,6 +732,19 @@
       </div>
       <div class="result-box" id="hub-ai-result">LLMs predict and generate helpful text based on patterns learned from large datasets.</div>
     </div>
+    <div class="tool-card" id="case-tool">
+      <h2>11. Text Case Converter</h2>
+      <p class="desc">Convert text between UPPERCASE, lowercase, and Title Case in one click.</p>
+      <label for="case-input">Enter Your Text:</label>
+      <textarea id="case-input" rows="3" placeholder="Type or paste text here..."></textarea>
+      <div style="display:flex; gap:0.5rem; margin-top:0.6rem; flex-wrap:wrap;">
+        <button type="button" onclick="convertCase('upper')">UPPERCASE</button>
+        <button type="button" onclick="convertCase('lower')">lowercase</button>
+        <button type="button" onclick="convertCase('title')">Title Case</button>
+      </div>
+      <div class="result-box" id="case-result">Converted text will appear here.</div>
+      <p class="hint">Tip: Useful for formatting headings, emails, and social captions without retyping.</p>
+    </div>
   </main>
 
   <section class="ai-section" id="ai-assistant">

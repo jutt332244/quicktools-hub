@@ -3,188 +3,135 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | QuickTools Hub</title>
-  <meta name="description" content="Learn about QuickTools Hub, our mission to provide fast everyday calculators, converters, and generators, and how our tools help daily productivity." />
+  <title>About Us - QuickTools Hub</title>
   <style>
     :root {
       --primary: #4f46e5;
-      --primary-soft: rgba(79, 70, 229, 0.08);
-      --accent: #0d9488;
-      --bg: #f4f7fb;
+      --primary-soft: #eef2ff;
+      --bg: #f8fafc;
       --card: #ffffff;
       --text: #0f172a;
-      --muted: #64748b;
+      --muted: #475569;
       --border: #e2e8f0;
-      --shadow-sm: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.04);
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background-color: var(--bg);
-      background-image:
-        radial-gradient(circle at 12% 0%, rgba(79, 70, 229, 0.09) 0%, transparent 42%),
-        radial-gradient(circle at 88% 8%, rgba(13, 148, 136, 0.08) 0%, transparent 38%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.7;
-      min-height: 100vh;
+      line-height: 1.65;
     }
-
     header {
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(12px);
+      background: var(--card);
       border-bottom: 1px solid var(--border);
-      padding: 0.95rem 5%;
+      padding: 1rem 1.5rem;
+    }
+    .nav-wrap {
+      max-width: 960px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 1rem;
     }
-
-    .logo {
-      font-size: 1.3rem;
+    .brand {
       font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--primary);
       text-decoration: none;
-      background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
-
     nav a {
+      margin-left: 1rem;
       text-decoration: none;
-      color: #334155;
+      color: var(--muted);
       font-weight: 600;
-      font-size: 0.88rem;
-      padding: 0.4rem 0.75rem;
-      border-radius: 8px;
+      font-size: 0.92rem;
     }
-
-    nav a:hover {
-      color: var(--primary);
-      background: var(--primary-soft);
+    nav a:hover { color: var(--primary); }
+    main {
+      max-width: 820px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
     }
-
-    .page-wrap {
-      max-width: 920px;
-      margin: 2rem auto 3rem;
-      padding: 0 1.2rem;
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-bottom: 1rem;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    .back-link:hover {
-      text-decoration: underline;
-    }
-
     .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.85rem;
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 1.5rem;
+      border-radius: 14px;
+      padding: 2rem;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
     }
-
-    h1 {
-      font-size: clamp(1.65rem, 3vw, 2.2rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.4rem;
-    }
-
-    .subtitle {
-      color: var(--muted);
-      margin-bottom: 1.25rem;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      margin: 1.2rem 0 0.45rem;
-      color: var(--text);
-    }
-
-    p, li {
-      color: #334155;
-      font-size: 0.95rem;
-      margin-bottom: 0.55rem;
-    }
-
-    ul {
-      padding-left: 1.25rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.8rem 1rem;
-      border-top: 1px solid var(--border);
-      background: #ffffff;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    footer a {
-      color: var(--primary);
+    h1 { font-size: 1.85rem; margin-bottom: 0.75rem; }
+    h2 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--primary); }
+    p { color: var(--muted); margin-bottom: 0.9rem; }
+    ul { margin-left: 1.25rem; color: var(--muted); margin-bottom: 1rem; }
+    li { margin-bottom: 0.4rem; }
+    .btn {
+      display: inline-block;
+      margin-top: 0.75rem;
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      color: #fff;
+      padding: 0.65rem 1.2rem;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
-      margin: 0 0.35rem;
+      font-size: 0.92rem;
     }
+    footer {
+      max-width: 960px;
+      margin: 2.5rem auto 1.5rem;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--primary); text-decoration: none; font-weight: 600; margin: 0 0.35rem; }
   </style>
 </head>
 <body>
   <header>
-    <a href="index.html" class="logo">QuickTools Hub</a>
-    <nav>
-      <a href="index.html">All Tools</a>
-      <a href="about.html">About</a>
-      <a href="privacy-policy.html">Privacy Policy</a>
-    </nav>
+    <div class="nav-wrap">
+      <a href="index.html" class="brand">QuickTools Hub</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="page-wrap">
-    <a href="index.html" class="back-link">← Back to All 9 Tools</a>
-
-    <article class="card">
+  <main>
+    <div class="card">
       <h1>About QuickTools Hub</h1>
-      <p class="subtitle">Fast, clean, and accessible everyday online utilities built for speed and clarity.</p>
+      <p>QuickTools Hub, operated by MOUM, is a fast, lightweight collection of free online calculators, text utilities, and everyday productivity tools built to work directly in your web browser.</p>
 
-      <p><strong>QuickTools Hub</strong> brings together practical everyday calculators, converters, and generators in one clean workspace. Whether you are checking an installment plan, counting words, converting units, or generating a QR code, our goal is to give you instant answers without clutter.</p>
+      <h2>Why We Built It</h2>
+      <p>Many online utility websites are slow, cluttered with pop-ups, or force users to create accounts for simple everyday tasks. Our goal is to provide instant, practical tools with zero registration and clean design.</p>
 
       <h2>What You Can Do Here</h2>
       <ul>
-        <li><strong>Everyday Calculators:</strong> Age Calculator, Percentage Calculator, BMI Calculator, and Loan / Monthly EMI Calculator.</li>
-        <li><strong>Text &amp; Security Utilities:</strong> Word &amp; Character Counter and Strong Password Generator.</li>
-        <li><strong>Converters &amp; Generators:</strong> Currency Converter, Quick Unit Converter, and Instant QR Code Generator.</li>
+        <li>Calculate exact age, BMI, loan EMI, percentages, and discounts quickly.</li>
+        <li>Convert text cases, units, and currencies or generate QR codes and strong passwords.</li>
+        <li>Get quick guidance and helpful answers right from your browser.</li>
       </ul>
 
-      <h2>Why We Built QuickTools Hub</h2>
-      <p>Everyday tasks often get slowed down by heavy pages, confusing menus, or unnecessary steps. We organize each utility on its own dedicated page with clear explanations, formulas, and practical tips so visitors can find what they need quickly on desktop or mobile.</p>
+      <h2>Transparency &amp; Accuracy</h2>
+      <p>We strive to keep all formulas and explanations clear and accurate, though results are provided for general informational and everyday convenience purposes.</p>
 
-      <h2>Explore All Tools</h2>
-      <p>Visit the <a href="index.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">QuickTools Hub Home Page</a> to browse all available utilities and start using them right away.</p>
-    </article>
+      <a href="index.html" class="btn">Explore All Tools</a>
+    </div>
   </main>
 
   <footer>
-    &copy; 2026 QuickTools Hub. All rights reserved. &middot;
+    &copy; 2026 QuickTools Hub. Owned &amp; Operated by MOUM. All rights reserved.<br />
     <a href="index.html">Home</a> &middot;
     <a href="about.html">About</a> &middot;
-    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="privacy-policy.html">Privacy Policy</a> &middot;
+    <a href="terms.html">Terms</a> &middot;
+    <a href="contact.html">Contact</a>
   </footer>
 </body>
 </html>

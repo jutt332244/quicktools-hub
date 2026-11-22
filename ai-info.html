@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Info &amp; Quick Explorer | QuickTools Hub</title>
-  <meta name="description" content="Explore AI concepts, popular AI use cases, prompt tips, and quick everyday AI explanations on QuickTools Hub." />
+  <title>Exact Age Calculator - Years, Months &amp; Days | QuickTools Hub</title>
+  <meta name="description" content="Calculate your exact age in years, months, and days online for free. Includes age milestones, leap year info, and FAQs." />
   <style>
     :root {
       --primary: #4f46e5;
@@ -28,8 +28,8 @@
     body {
       background-color: var(--bg);
       background-image:
-        radial-gradient(circle at 12% 8%, rgba(79, 70, 229, 0.09) 0%, transparent 42%),
-        radial-gradient(circle at 88% 18%, rgba(13, 148, 136, 0.08) 0%, transparent 38%);
+        radial-gradient(circle at 12% 0%, rgba(79, 70, 229, 0.09) 0%, transparent 42%),
+        radial-gradient(circle at 88% 8%, rgba(13, 148, 136, 0.08) 0%, transparent 38%);
       color: var(--text);
       line-height: 1.65;
       min-height: 100vh;
@@ -113,12 +113,6 @@
       margin-bottom: 1.3rem;
     }
 
-    .two-col {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-
     label {
       display: block;
       font-size: 0.85rem;
@@ -127,17 +121,17 @@
       color: #334155;
     }
 
-    select {
+    input[type="date"] {
       width: 100%;
-      padding: 0.7rem 0.85rem;
+      padding: 0.72rem 0.9rem;
       border: 1px solid #cbd5e1;
       border-radius: 10px;
       font-size: 0.95rem;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.9rem;
       background: #f8fafc;
     }
 
-    button.primary-btn {
+    button {
       background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
       color: #ffffff;
       border: none;
@@ -152,30 +146,19 @@
     .result-box {
       margin-top: 1rem;
       padding: 0.95rem 1rem;
-      background: linear-gradient(135deg, #eef2ff 0%, #f0fdf4 100%);
+      background: linear-gradient(135deg, #eef2ff 0%, #f0f9ff 100%);
       border: 1px solid #dbeafe;
       border-radius: 10px;
       font-weight: 700;
-      font-size: 1.02rem;
-      min-height: 52px;
+      font-size: 1rem;
+      min-height: 50px;
     }
 
-    .sub-result {
-      margin-top: 0.4rem;
+    .extra-info {
+      margin-top: 0.5rem;
       font-size: 0.86rem;
       font-weight: 500;
       color: #475569;
-    }
-
-    .ad-slot {
-      margin: 1.5rem 0;
-      padding: 0.95rem 1rem;
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px dashed #cbd5e1;
-      text-align: center;
-      color: #64748b;
-      font-size: 0.82rem;
-      border-radius: 12px;
     }
 
     .guide h2 {
@@ -208,74 +191,49 @@
     <a href="index.html" class="logo">QuickTools Hub</a>
     <nav>
       <a href="index.html">All Tools</a>
-      <a href="word-counter.html">Word Counter</a>
-      <a href="password-generator.html">Password Generator</a>
-      <a href="qr-code-generator.html">QR Generator</a>
+      <a href="index.html#currency-tool">Currency</a>
+      <a href="index.html#qr-tool">QR Generator</a>
+      <a href="index.html#ai-assistant">AI Info</a>
     </nav>
   </header>
 
   <main class="page-wrap">
-    <a href="index.html" class="back-link">&larr; Back to All Tools</a>
-
-    <div class="ad-slot">Advertisement Space (Top Banner - Responsive)</div>
+    <a href="index.html" class="back-link">← Back to All 11 Tools</a>
 
     <section class="card">
-      <h1>AI Info &amp; Quick Explorer</h1>
-      <p class="subtitle">Learn key AI terms, practical daily workflows, and prompt best practices in seconds.</p>
+      <h1>Exact Age Calculator</h1>
+      <p class="subtitle">Find your exact age in years, months, and days, along with total days lived and your next birthday countdown.</p>
 
-      <div class="two-col">
-        <div>
-          <label for="ai-topic-select">Select AI Topic</label>
-          <select id="ai-topic-select" onchange="showAiInfo()">
-            <option value="llm">Large Language Models (LLMs)</option>
-            <option value="prompting">Effective Prompting Basics</option>
-            <option value="hallucination">AI Accuracy &amp; Fact-Checking</option>
-            <option value="productivity">Everyday Productivity Use Cases</option>
-          </select>
-        </div>
-        <div>
-          <label for="ai-level-select">Explanation Style</label>
-          <select id="ai-level-select" onchange="showAiInfo()">
-            <option value="simple">Simple &amp; Beginner-Friendly</option>
-            <option value="practical">Practical &amp; Actionable</option>
-          </select>
-        </div>
-      </div>
-
-      <button type="button" class="primary-btn" onclick="showAiInfo()">Show AI Info</button>
-      <button type="button" onclick="resetAiInfoTool()" style="margin-top: 0.55rem; width: 100%; padding: 0.72rem 1.2rem; border-radius: 10px; background: #eef2ff; color: var(--primary); border: 1px solid #c7d2fe; font-weight: 600; cursor: pointer;">Reset</button>
-
-      <div class="result-box">
-        <span id="ai-info-main">Select a topic to view AI guidance.</span>
-        <div class="sub-result" id="ai-info-sub"></div>
+      <label for="dob">Select Your Date of Birth:</label>
+      <input type="date" id="dob" />
+      <button type="button" onclick="calculateFullAge()">Calculate Exact Age</button>
+      <button type="button" onclick="resetAgeCalculator()" style="margin-top: 0.55rem; background: #eef2ff; color: var(--primary); border: 1px solid #c7d2fe;">Reset</button>
+      <div class="result-box" id="age-result">
+        Your exact age will appear here.
+        <div class="extra-info" id="age-extra"></div>
       </div>
     </section>
-    <div class="ad-slot">Advertisement Space (Mid Content Banner - Responsive)</div>
 
     <article class="card guide">
-      <h2>How to Use AI Tools Effectively</h2>
-      <p>AI assistants work best when you give clear context, define your goal, and specify the output format you want.</p>
+      <h2>How Exact Age Is Calculated</h2>
+      <p>An exact age calculator compares your date of birth against today's calendar date while accounting for varying month lengths (28, 30, or 31 days) and leap years.</p>
+
+      <h2>Common Uses of an Age Calculator</h2>
       <ul>
-        <li><strong>Be Specific:</strong> Share audience, tone, and constraints instead of vague one-word requests.</li>
-        <li><strong>Iterate in Steps:</strong> Start with an outline or draft, then refine details step by step.</li>
-        <li><strong>Verify Facts:</strong> Always double-check dates, numbers, statistics, and technical claims.</li>
+        <li><strong>Official Forms &amp; Admissions:</strong> School admissions, job applications, and government forms often require exact age on a specific cutoff date.</li>
+        <li><strong>Fitness &amp; Health Benchmarks:</strong> Many health metrics and wellness guidelines group adults by age brackets.</li>
+        <li><strong>Milestone Tracking:</strong> Checking how many days you have lived or how many days remain until your next birthday.</li>
       </ul>
 
       <h2>Frequently Asked Questions</h2>
-      <p><strong>Do I need technical skills to use AI?</strong><br />No. Clear plain-language instructions are enough for most writing, summarizing, and brainstorming tasks.</p>
-      <p><strong>How can I avoid generic AI answers?</strong><br />Provide examples, target length, or specific points you want covered.</p>
+      <p><strong>Does this calculator account for leap years?</strong><br />Yes, JavaScript's calendar date calculation automatically handles leap days in February.</p>
+      <p><strong>Is my date of birth stored on any server?</strong><br />No, all calculations run directly in your browser.</p>
     </article>
-
-    <div class="ad-slot">Advertisement Space (Bottom Banner - Responsive)</div>
 
     <section class="card">
       <h2>Related Tools You May Need</h2>
       <p class="subtitle" style="margin-bottom: 1rem;">Explore more everyday utilities on QuickTools Hub.</p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0.85rem;">
-        <a href="age-calculator.html" style="display: block; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); background: #f8fafc;">
-          <strong style="display: block; color: var(--primary); margin-bottom: 0.2rem;">Age Calculator</strong>
-          <span style="font-size: 0.85rem; color: var(--muted);">Calculate exact age in years &amp; days</span>
-        </a>
         <a href="word-counter.html" style="display: block; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); background: #f8fafc;">
           <strong style="display: block; color: var(--primary); margin-bottom: 0.2rem;">Word Counter</strong>
           <span style="font-size: 0.85rem; color: var(--muted);">Count words, characters &amp; lines</span>
@@ -283,6 +241,10 @@
         <a href="password-generator.html" style="display: block; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); background: #f8fafc;">
           <strong style="display: block; color: var(--primary); margin-bottom: 0.2rem;">Password Generator</strong>
           <span style="font-size: 0.85rem; color: var(--muted);">Create strong random passwords</span>
+        </a>
+        <a href="qr-code-generator.html" style="display: block; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); background: #f8fafc;">
+          <strong style="display: block; color: var(--primary); margin-bottom: 0.2rem;">QR Code Generator</strong>
+          <span style="font-size: 0.85rem; color: var(--muted);">Create scannable QR codes</span>
         </a>
       </div>
     </section>
@@ -293,67 +255,55 @@
   </footer>
 
   <script>
-    const aiContent = {
-      llm: {
-        simple: {
-          main: "Large Language Models (LLMs) are AI systems trained on large amounts of text to predict and generate helpful responses.",
-          sub: "Think of them as smart pattern learners that draft text, answer questions, and explain ideas."
-        },
-        practical: {
-          main: "Use LLMs for drafting, summarizing long notes, brainstorming angles, and translating rough ideas into structured outlines.",
-          sub: "Tip: Give role, task, and format in one clear prompt for much sharper output."
-        }
-      },
-      prompting: {
-        simple: {
-          main: "Good prompting means telling the AI clearly what you want, who it is for, and how the answer should look.",
-          sub: "Clear context prevents guesswork and saves follow-up edits."
-        },
-        practical: {
-          main: "Structure prompts with Goal + Context + Constraints (e.g., bullet points, under 150 words, beginner tone).",
-          sub: "Tip: Ask for 2–3 variations when exploring titles, hooks, or layouts."
-        }
-      },
-      hallucination: {
-        simple: {
-          main: "Sometimes AI can sound confident while giving an inaccurate or outdated detail—known as a hallucination.",
-          sub: "Always verify important facts, links, and figures before publishing."
-        },
-        practical: {
-          main: "Cross-check critical numbers, legal/financial details, and recent facts against trusted primary sources.",
-          sub: "Tip: Ask AI to list assumptions so you can spot weak points quickly."
-        }
-      },
-      productivity: {
-        simple: {
-          main: "AI speeds up routine tasks like organizing checklists, rewriting emails, and turning rough thoughts into clear plans.",
-          sub: "It works best as a fast assistant while you stay in charge of final decisions."
-        },
-        practical: {
-          main: "Pair AI with your daily workflow to batch outlines, format data, and speed up repetitive text prep.",
-          sub: "Tip: Keep a small library of your best prompts for recurring tasks."
-        }
+    function calculateFullAge() {
+      const dobInput = document.getElementById("dob").value;
+      const resultBox = document.getElementById("age-result");
+      const extraBox = document.getElementById("age-extra");
+
+      if (!dobInput) {
+        resultBox.firstChild.textContent = "Please select your date of birth first.";
+        extraBox.textContent = "";
+        return;
       }
-    };
 
-    function showAiInfo() {
-      const topic = document.getElementById("ai-topic-select").value;
-      const level = document.getElementById("ai-level-select").value;
-      const item = aiContent[topic] && aiContent[topic][level];
-      if (!item) return;
+      const dob = new Date(dobInput + "T00:00:00");
+      const today = new Date();
+      const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
-      document.getElementById("ai-info-main").textContent = item.main;
-      document.getElementById("ai-info-sub").textContent = item.sub;
+      if (dob > todayMidnight) {
+        resultBox.firstChild.textContent = "Date of birth cannot be in the future.";
+        extraBox.textContent = "";
+        return;
+      }
+
+      let years = todayMidnight.getFullYear() - dob.getFullYear();
+      let months = todayMidnight.getMonth() - dob.getMonth();
+      let days = todayMidnight.getDate() - dob.getDate();
+
+      if (days < 0) {
+        months--;
+        days += new Date(todayMidnight.getFullYear(), todayMidnight.getMonth(), 0).getDate();
+      }
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      const totalDays = Math.floor((todayMidnight - dob) / (1000 * 60 * 60 * 24));
+      let nextBday = new Date(todayMidnight.getFullYear(), dob.getMonth(), dob.getDate());
+      if (nextBday < todayMidnight) {
+        nextBday = new Date(todayMidnight.getFullYear() + 1, dob.getMonth(), dob.getDate());
+      }
+      const daysUntilBday = Math.ceil((nextBday - todayMidnight) / (1000 * 60 * 60 * 24));
+
+      resultBox.firstChild.textContent = years + " Years, " + months + " Months, " + days + " Days";
+      extraBox.textContent = "Total days lived: " + totalDays.toLocaleString() + " days · Next birthday in: " + daysUntilBday + " days";
     }
-
-    function resetAiInfoTool() {
-      document.getElementById("ai-topic-select").value = "llm";
-      document.getElementById("ai-level-select").value = "simple";
-      document.getElementById("ai-info-main").textContent = "Select a topic to view AI guidance.";
-      document.getElementById("ai-info-sub").textContent = "";
+    function resetAgeCalculator() {
+      document.getElementById("dob").value = "";
+      document.getElementById("age-result").firstChild.textContent = "Your exact age will appear here.";
+      document.getElementById("age-extra").textContent = "";
     }
-
-    showAiInfo();
   </script>
 </body>
 </html>

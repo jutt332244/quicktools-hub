@@ -1008,7 +1008,21 @@
     if (type === "f-c") out = val + " °F = " + ((val - 32) * 5 / 9).toFixed(2) + " °C";
     box.textContent = out;
   }
-
+function convertCase(mode) {
+  const text = document.getElementById("case-input").value;
+  const box = document.getElementById("case-result");
+  if (!text.trim()) {
+    box.textContent = "Please enter some text first.";
+    return;
+  }
+  if (mode === "upper") {
+    box.textContent = text.toUpperCase();
+  } else if (mode === "lower") {
+    box.textContent = text.toLowerCase();
+  } else {
+    box.textContent = text.toLowerCase().replace(/\b\w/g, (ch) => ch.toUpperCase());
+  }
+}
   function generateQR() {
     const text = document.getElementById("qr-text").value.trim();
     const output = document.getElementById("qr-output");

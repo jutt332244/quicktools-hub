@@ -716,7 +716,23 @@
         <small style="color: var(--muted);">Your QR code image will appear here.</small>
       </div>
     </div>
-
+<div class="tool-card" id="ai-info-tool">
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem;">
+          <h2>10. AI Info &amp; Quick Explorer</h2>
+          <a href="ai-info.html" style="font-size: 0.78rem; font-weight: 700; color: var(--primary); text-decoration: none; white-space: nowrap; background: var(--primary-soft); padding: 0.25rem 0.55rem; border-radius: 6px;">Open Full Tool Page &rarr;</a>
+        </div>
+        <p class="desc">Explore key AI terms, prompt tips, and everyday AI guidance quickly.</p>
+        <label for="hub-ai-topic">Select AI Topic:</label>
+        <select id="hub-ai-topic" onchange="updateHubAiInfo()" style="width: 100%; padding: 0.65rem 0.8rem; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.92rem; margin-bottom: 0.85rem; background: #f8fafc;">
+          <option value="llm">Large Language Models (LLMs)</option>
+          <option value="prompting">Effective Prompting Basics</option>
+          <option value="hallucination">AI Accuracy &amp; Fact-Checking</option>
+          <option value="productivity">Everyday Productivity Use Cases</option>
+        </select>
+      </div>
+      <div class="result-box" id="hub-ai-result">LLMs predict and generate helpful text based on patterns learned from large datasets.</div>
+    </div>
   </main>
 
   <section class="ai-section" id="ai-assistant">
@@ -1049,4 +1065,15 @@ return 'You asked: "' + q + '"\n\nTip: You can type any math expression here (li
   }
 
   loadExchangeRates();
+    function updateHubAiInfo() {
+      const topic = document.getElementById("hub-ai-topic").value;
+      const box = document.getElementById("hub-ai-result");
+      const messages = {
+        llm: "LLMs predict and generate helpful text based on patterns learned from large datasets.",
+        prompting: "Give clear context, your goal, and format rules so AI answers stay accurate and useful.",
+        hallucination: "AI can sound confident yet make mistakes—always verify important facts and numbers.",
+        productivity: "Use AI to speed up outlines, summaries, checklists, and everyday brainstorming."
+      };
+      box.textContent = messages[topic] || messages.llm;
+    }
 </script>

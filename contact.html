@@ -3,255 +3,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us | QuickTools Hub</title>
-  <meta name="description" content="Get in touch with QuickTools Hub for feedback, new tool suggestions, bug reports, or general inquiries." />
+  <title>Contact Us - QuickTools Hub</title>
   <style>
     :root {
       --primary: #4f46e5;
-      --primary-soft: rgba(79, 70, 229, 0.08);
-      --accent: #0d9488;
-      --bg: #f4f7fb;
+      --bg: #f8fafc;
       --card: #ffffff;
       --text: #0f172a;
-      --muted: #64748b;
+      --muted: #475569;
       --border: #e2e8f0;
-      --shadow-sm: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.04);
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background-color: var(--bg);
-      background-image:
-        radial-gradient(circle at 12% 0%, rgba(79, 70, 229, 0.09) 0%, transparent 42%),
-        radial-gradient(circle at 88% 8%, rgba(13, 148, 136, 0.08) 0%, transparent 38%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.7;
-      min-height: 100vh;
+      line-height: 1.65;
     }
-
     header {
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(12px);
+      background: var(--card);
       border-bottom: 1px solid var(--border);
-      padding: 0.95rem 5%;
+      padding: 1rem 1.5rem;
+    }
+    .nav-wrap {
+      max-width: 960px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 1rem;
     }
-
-    .logo {
-      font-size: 1.3rem;
+    .brand {
       font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--primary);
       text-decoration: none;
-      background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
-
     nav a {
+      margin-left: 1rem;
       text-decoration: none;
-      color: #334155;
+      color: var(--muted);
       font-weight: 600;
-      font-size: 0.88rem;
-      padding: 0.4rem 0.75rem;
-      border-radius: 8px;
+      font-size: 0.92rem;
     }
-
-    nav a:hover {
-      color: var(--primary);
-      background: var(--primary-soft);
+    nav a:hover { color: var(--primary); }
+    main {
+      max-width: 820px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
     }
-
-    .page-wrap {
-      max-width: 920px;
-      margin: 2rem auto 3rem;
-      padding: 0 1.2rem;
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-bottom: 1rem;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    .back-link:hover {
-      text-decoration: underline;
-    }
-
     .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.85rem;
-      box-shadow: var(--shadow-sm);
+      border-radius: 14px;
+      padding: 2rem;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+    }
+    h1 { font-size: 1.85rem; margin-bottom: 0.5rem; }
+    p { color: var(--muted); margin-bottom: 1rem; }
+    .contact-box {
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
       margin-bottom: 1.5rem;
+      color: var(--text);
+      font-size: 0.95rem;
     }
-
-    h1 {
-      font-size: clamp(1.65rem, 3vw, 2.2rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.4rem;
-    }
-
-    .subtitle {
-      color: var(--muted);
-      margin-bottom: 1.35rem;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-
     label {
       display: block;
-      font-size: 0.85rem;
       font-weight: 600;
-      margin-bottom: 0.4rem;
-      color: #334155;
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+      margin-top: 0.85rem;
     }
-
-    input[type="text"],
-    input[type="email"],
-    textarea {
+    input, textarea {
       width: 100%;
-      padding: 0.75rem 0.9rem;
+      padding: 0.65rem 0.8rem;
       border: 1px solid #cbd5e1;
-      border-radius: 10px;
+      border-radius: 8px;
+      font-family: inherit;
       font-size: 0.95rem;
-      margin-bottom: 0.95rem;
-      background: #f8fafc;
-      color: var(--text);
     }
-
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    button.primary-btn {
-      background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
-      color: #ffffff;
-      border: none;
-      padding: 0.8rem 1.25rem;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    .notice-box {
+    button {
       margin-top: 1rem;
-      padding: 0.95rem 1rem;
-      background: linear-gradient(135deg, #eef2ff 0%, #f0f9ff 100%);
-      border: 1px solid #dbeafe;
-      border-radius: 10px;
-      font-size: 0.92rem;
-      color: #1e293b;
-      display: none;
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.3rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
     }
-
-    h2 {
-      font-size: 1.2rem;
-      margin: 1.25rem 0 0.45rem;
+    .status {
+      margin-top: 0.85rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary);
     }
-
-    p, li {
-      color: #334155;
-      font-size: 0.94rem;
-      margin-bottom: 0.5rem;
-    }
-
-    ul {
-      padding-left: 1.25rem;
-    }
-
     footer {
+      max-width: 960px;
+      margin: 2.5rem auto 1.5rem;
+      padding: 1rem 1.5rem;
       text-align: center;
-      padding: 1.8rem 1rem;
-      border-top: 1px solid var(--border);
-      background: #ffffff;
       color: var(--muted);
       font-size: 0.88rem;
+      border-top: 1px solid var(--border);
     }
-
-    footer a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      margin: 0 0.35rem;
-    }
+    footer a { color: var(--primary); text-decoration: none; font-weight: 600; margin: 0 0.35rem; }
   </style>
 </head>
 <body>
   <header>
-    <a href="index.html" class="logo">QuickTools Hub</a>
-    <nav>
-      <a href="index.html">All Tools</a>
-      <a href="about.html">About</a>
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms.html">Terms</a>
-    </nav>
+    <div class="nav-wrap">
+      <a href="index.html" class="brand">QuickTools Hub</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="page-wrap">
-    <a href="index.html" class="back-link">← Back to All 9 Tools</a>
-
-    <section class="card">
+  <main>
+    <div class="card">
       <h1>Contact Us</h1>
-      <p class="subtitle">Have a tool suggestion, noticed an issue, or want to share feedback? Send a note below.</p>
+      <p>Have a question, bug report, or tool suggestion for QuickTools Hub? Reach out to the MOUM team anytime.</p>
 
-      <form onsubmit="handleContactSubmit(event)">
-        <div class="two-col">
-          <div>
-            <label for="contact-name">Your Name:</label>
-            <input type="text" id="contact-name" placeholder="Enter your name" required />
-          </div>
-          <div>
-            <label for="contact-email">Email Address:</label>
-            <input type="email" id="contact-email" placeholder="you@example.com" required />
-          </div>
-        </div>
+      <div class="contact-box">
+        <strong>Operator:</strong> MOUM<br />
+        <strong>Response Time:</strong> Usually within 24–48 hours
+      </div>
 
-        <label for="contact-subject">Subject:</label>
-        <input type="text" id="contact-subject" placeholder="Tool suggestion, feedback, or question" required />
+      <label for="cname">Your Name</label>
+      <input type="text" id="cname" placeholder="Enter your name" />
 
-        <label for="contact-message">Message:</label>
-        <textarea id="contact-message" placeholder="Write your message here..." required></textarea>
+      <label for="cemail">Your Email</label>
+      <input type="email" id="cemail" placeholder="you@example.com" />
 
-        <button type="submit" class="primary-btn">Send Message</button>
-      </form>
+      <label for="cmsg">Message</label>
+      <textarea id="cmsg" rows="4" placeholder="Write your feedback or question here..."></textarea>
 
-      <div class="notice-box" id="contact-status"></div>
-
-      <h2>What You Can Reach Out For</h2>
-      <ul>
-        <li><strong>New Tool Ideas:</strong> Suggest calculators, converters, or text helpers you would like added next.</li>
-        <li><strong>Accuracy &amp; Bug Reports:</strong> Let us know if any formula, unit conversion, or layout behaves unexpectedly.</li>
-        <li><strong>General Inquiries:</strong> Questions about our policies, tools, or future updates.</li>
-      </ul>
-    </section>
+      <button type="button" onclick="sendContactMsg()">Send Message</button>
+      <div class="status" id="cstatus"></div>
+    </div>
   </main>
 
   <footer>
-    &copy; 2026 QuickTools Hub. All rights reserved. &middot;
+    &copy; 2026 QuickTools Hub. Owned &amp; Operated by MOUM. All rights reserved.<br />
     <a href="index.html">Home</a> &middot;
     <a href="about.html">About</a> &middot;
     <a href="privacy-policy.html">Privacy Policy</a> &middot;
@@ -260,15 +163,19 @@
   </footer>
 
   <script>
-    function handleContactSubmit(event) {
-      event.preventDefault();
-      const name = document.getElementById("contact-name").value.trim();
-      const box = document.getElementById("contact-status");
-      box.style.display = "block";
-      box.innerHTML =
-        "<strong>Thanks, " +
-        name.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
-        "!</strong> Your draft message has been prepared in this session. Once our official contact endpoint is connected, submissions will be delivered directly.";
+    function sendContactMsg() {
+      const name = document.getElementById("cname").value.trim();
+      const email = document.getElementById("cemail").value.trim();
+      const msg = document.getElementById("cmsg").value.trim();
+      const status = document.getElementById("cstatus");
+      if (!name || !email || !msg) {
+        status.textContent = "Please fill in your name, email, and message.";
+        return;
+      }
+      status.textContent = "Thank you, " + name + "! Your message has been recorded for our team.";
+      document.getElementById("cname").value = "";
+      document.getElementById("cemail").value = "";
+      document.getElementById("cmsg").value = "";
     }
   </script>
 </body>

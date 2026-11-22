@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Info &amp; Quick Explorer | QuickTools Hub</title>
+  <meta name="description" content="Explore AI concepts, popular AI use cases, prompt tips, and quick everyday AI explanations on QuickTools Hub." />
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-soft: rgba(79, 70, 229, 0.08);
+      --accent: #0d9488;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 12% 8%, rgba(79, 70, 229, 0.09) 0%, transparent 42%),
+        radial-gradient(circle at 88% 18%, rgba(13, 148, 136, 0.08) 0%, transparent 38%);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.95rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-decoration: none;
+      background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .page-wrap {
+      max-width: 920px;
+      margin: 2rem auto 3rem;
+      padding: 0 1.2rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 3vw, 2.15rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 1.3rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #334155;
+    }
+
+    select {
+      width: 100%;
+      padding: 0.7rem 0.85rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      margin-bottom: 0.85rem;
+      background: #f8fafc;
+    }
+
+    button.primary-btn {
+      background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
+      color: #ffffff;
+      border: none;
+      padding: 0.78rem 1.2rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .result-box {
+      margin-top: 1rem;
+      padding: 0.95rem 1rem;
+      background: linear-gradient(135deg, #eef2ff 0%, #f0fdf4 100%);
+      border: 1px solid #dbeafe;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.02rem;
+      min-height: 52px;
+    }
+
+    .sub-result {
+      margin-top: 0.4rem;
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: #475569;
+    }
+
+    .ad-slot {
+      margin: 1.5rem 0;
+      padding: 0.95rem 1rem;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px dashed #cbd5e1;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.82rem;
+      border-radius: 12px;
+    }
+
+    .guide h2 {
+      font-size: 1.22rem;
+      margin: 1.1rem 0 0.45rem;
+    }
+
+    .guide p, .guide li {
+      color: #334155;
+      font-size: 0.94rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .guide ul {
+      padding-left: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.8rem 1rem;
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">QuickTools Hub</a>
+    <nav>
+      <a href="index.html">All Tools</a>
+      <a href="word-counter.html">Word Counter</a>
+      <a href="password-generator.html">Password Generator</a>
+      <a href="qr-code-generator.html">QR Generator</a>
+    </nav>
+  </header>
+
+  <main class="page-wrap">
+    <a href="index.html" class="back-link">&larr; Back to All Tools</a>
+
+    <div class="ad-slot">Advertisement Space (Top Banner - Responsive)</div>
+
+    <section class="card">
+      <h1>AI Info &amp; Quick Explorer</h1>
+      <p class="subtitle">Learn key AI terms, practical daily workflows, and prompt best practices in seconds.</p>
+
+      <div class="two-col">
+        <div>
+          <label for="ai-topic-select">Select AI Topic</label>
+          <select id="ai-topic-select" onchange="showAiInfo()">
+            <option value="llm">Large Language Models (LLMs)</option>
+            <option value="prompting">Effective Prompting Basics</option>
+            <option value="hallucination">AI Accuracy &amp; Fact-Checking</option>
+            <option value="productivity">Everyday Productivity Use Cases</option>
+          </select>
+        </div>
+        <div>
+          <label for="ai-level-select">Explanation Style</label>
+          <select id="ai-level-select" onchange="showAiInfo()">
+            <option value="simple">Simple &amp; Beginner-Friendly</option>
+            <option value="practical">Practical &amp; Actionable</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="button" class="primary-btn" onclick="showAiInfo()">Show AI Info</button>
+      <button type="button" onclick="resetAiInfoTool()" style="margin-top: 0.55rem; width: 100%; padding: 0.72rem 1.2rem; border-radius: 10px; background: #eef2ff; color: var(--primary); border: 1px solid #c7d2fe; font-weight: 600; cursor: pointer;">Reset</button>
+
+      <div class="result-box">
+        <span id="ai-info-main">Select a topic to view AI guidance.</span>
+        <div class="sub-result" id="ai-info-sub"></div>
+      </div>
+    </section>
+    <div class="ad-slot">Advertisement Space (Mid Content Banner - Responsive)</div>
+
+    <article class="card guide">
+      <h2>How to Use AI Tools Effectively</h2>
+      <p>AI assistants work best when you give clear context, define your goal, and specify the output format you want.</p>
+      <ul>
+        <li><strong>Be Specific:</strong> Share audience, tone, and constraints instead of vague one-word requests.</li>
+        <li><strong>Iterate in Steps:</strong> Start with an outline or draft, then refine details step by step.</li>
+        <li><strong>Verify Facts:</strong> Always double-check dates, numbers, statistics, and technical claims.</li>
+      </ul>
+
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Do I need technical skills to use AI?</strong><br />No. Clear plain-language instructions are enough for most writing, summarizing, and brainstorming tasks.</p>
+      <p><strong>How can I avoid generic AI answers?</strong><br />Provide examples, target length, or specific points you want covered.</p>
+    </article>
+
+    <div class="ad-slot">Advertisement Space (Bottom Banner - Responsive)</div>
+
+    <section class="card">
+      <h2>Related Tools You May Need</h2>
+      <p class="subtitle" style="margin-bottom: 1rem;">Explore more everyday utilities on QuickTools Hub.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0.85rem;">
+        <a href="age-calculator.html" style="display: block; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); background: #f8fafc;">
+          <strong style="display: block; color: var(--primary); margin-bottom: 0.2rem;">Age Calculator</strong>
+          <span style="font-size: 0.85rem; color: var(--muted);">Calculate exact age in years &amp; days</span>
+        </a>
+        <a href="word-counter.html" style="display: block; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); background: #f8fafc;">
+          <strong style="display: block; color: var(--primary); margin-bottom: 0.2rem;">Word Counter</strong>
+          <span style="font-size: 0.85rem; color: var(--muted);">Count words, characters &amp; lines</span>
+        </a>
+        <a href="password-generator.html" style="display: block; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); background: #f8fafc;">
+          <strong style="display: block; color: var(--primary); margin-bottom: 0.2rem;">Password Generator</strong>
+          <span style="font-size: 0.85rem; color: var(--muted);">Create strong random passwords</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 QuickTools Hub. All rights reserved. &middot; <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">Home</a>
+  </footer>
+
+  <script>
+    const aiContent = {
+      llm: {
+        simple: {
+          main: "Large Language Models (LLMs) are AI systems trained on large amounts of text to predict and generate helpful responses.",
+          sub: "Think of them as smart pattern learners that draft text, answer questions, and explain ideas."
+        },
+        practical: {
+          main: "Use LLMs for drafting, summarizing long notes, brainstorming angles, and translating rough ideas into structured outlines.",
+          sub: "Tip: Give role, task, and format in one clear prompt for much sharper output."
+        }
+      },
+      prompting: {
+        simple: {
+          main: "Good prompting means telling the AI clearly what you want, who it is for, and how the answer should look.",
+          sub: "Clear context prevents guesswork and saves follow-up edits."
+        },
+        practical: {
+          main: "Structure prompts with Goal + Context + Constraints (e.g., bullet points, under 150 words, beginner tone).",
+          sub: "Tip: Ask for 2–3 variations when exploring titles, hooks, or layouts."
+        }
+      },
+      hallucination: {
+        simple: {
+          main: "Sometimes AI can sound confident while giving an inaccurate or outdated detail—known as a hallucination.",
+          sub: "Always verify important facts, links, and figures before publishing."
+        },
+        practical: {
+          main: "Cross-check critical numbers, legal/financial details, and recent facts against trusted primary sources.",
+          sub: "Tip: Ask AI to list assumptions so you can spot weak points quickly."
+        }
+      },
+      productivity: {
+        simple: {
+          main: "AI speeds up routine tasks like organizing checklists, rewriting emails, and turning rough thoughts into clear plans.",
+          sub: "It works best as a fast assistant while you stay in charge of final decisions."
+        },
+        practical: {
+          main: "Pair AI with your daily workflow to batch outlines, format data, and speed up repetitive text prep.",
+          sub: "Tip: Keep a small library of your best prompts for recurring tasks."
+        }
+      }
+    };
+
+    function showAiInfo() {
+      const topic = document.getElementById("ai-topic-select").value;
+      const level = document.getElementById("ai-level-select").value;
+      const item = aiContent[topic] && aiContent[topic][level];
+      if (!item) return;
+
+      document.getElementById("ai-info-main").textContent = item.main;
+      document.getElementById("ai-info-sub").textContent = item.sub;
+    }
+
+    function resetAiInfoTool() {
+      document.getElementById("ai-topic-select").value = "llm";
+      document.getElementById("ai-level-select").value = "simple";
+      document.getElementById("ai-info-main").textContent = "Select a topic to view AI guidance.";
+      document.getElementById("ai-info-sub").textContent = "";
+    }
+
+    showAiInfo();
+  </script>
+</body>
+</html>

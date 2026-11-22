@@ -760,7 +760,7 @@
       <button type="button" class="chip-btn" onclick="askQuick('How do currency exchange rates work?')">How exchange rates work?</button>
       <button type="button" class="chip-btn" onclick="askQuick('What is a healthy BMI range?')">Healthy BMI range</button>
       <button type="button" class="chip-btn" onclick="askQuick('Tips for creating a strong password')">Strong password tips</button>
-      <button type="button" class="chip-btn" onclick="askQuick('List all 9 tools on this website')">All available tools</button>
+      <button type="button" class="chip-btn" onclick="askQuick('List all 11 tools on this website')">All available tools</button>
     </div>
 
     <div class="ai-chat-box" id="ai-chat">
@@ -1062,10 +1062,8 @@ function convertCase(mode) {
       return "Use at least 12–16 characters mixing uppercase, lowercase, numbers, and symbols. Never reuse the same password across important accounts.";
     }
     if (lower.includes("tool") || lower.includes("list") || lower.includes("website")) {
-      return "This site includes 9 free tools:\n1. Exact Age Calculator\n2. Word & Character Counter\n3. Strong Password Generator\n4. Live Currency Converter\n5. Percentage & Discount Calculator\n6. BMI & Fitness Calculator\n7. Loan / Monthly EMI Calculator\n8. Quick Unit Converter\n9. Instant QR Code Generator";
-    }
-return 'You asked: "' + q + '"\n\nTip: You can type any math expression here (like 1250 * 18%), or use the 9 tools above for age, word count, passwords, live currency rates, discounts, BMI, EMI, units, and QR codes.';
-     }
+return "This site includes 11 free tools:\n1. Exact Age Calculator\n2. Word & Character Counter\n3. Strong Password Generator\n4. Live Currency Converter\n5. Percentage & Discount Calculator\n6. BMI & Fitness Calculator\n7. Loan EMI Calculator\n8. Unit Converter\n9. QR Code Generator\n10. AI Info & Quick Explorer\n11. Text Case Converter";    }
+return 'You asked: ' + q + '\n\nTip: You can type any math expression here (like 1250 * 18%), or use the 11 tools above for age, word count, passwords, live currency rates, discounts, BMI, EMI, units, QR codes, and text case conversion.';     }
   function sendAIQuestion() {
     const input = document.getElementById("ai-question");
     const chatBox = document.getElementById("ai-chat");

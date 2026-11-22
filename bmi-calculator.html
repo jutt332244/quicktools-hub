@@ -235,7 +235,7 @@
       </div>
 
       <button type="button" class="primary-btn" onclick="calculateFullBMI()">Calculate BMI &amp; Weight Range</button>
-
+<button type="button" onclick="resetBmiTool()" style="margin-top: 0.55rem; width: 100%; padding: 0.72rem 1.2rem; border-radius: 10px; background: #eef2ff; color: var(--primary); border: 1px solid #c7d2fe; font-weight: 600; cursor: pointer;">Reset</button>
       <div class="result-box">
         <span id="full-bmi-main">Enter weight and height to calculate BMI.</span>
         <div class="sub-result" id="full-bmi-sub"></div>
@@ -263,6 +263,24 @@
     </article>
 
     <div class="ad-slot">Advertisement Space (Bottom Banner - Responsive)</div>
+    <section class="card">
+      <h2>Related Tools You May Need</h2>
+      <p class="subtitle" style="margin-bottom: 1rem;">Explore more everyday utilities on QuickTools Hub.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0.85rem;">
+        <a href="age-calculator.html" style="display: block; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); background: #f8fafc;">
+          <strong style="display: block; color: var(--primary); margin-bottom: 0.2rem;">Age Calculator</strong>
+          <span style="font-size: 0.85rem; color: var(--muted);">Calculate exact age in years &amp; days</span>
+        </a>
+        <a href="word-counter.html" style="display: block; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); background: #f8fafc;">
+          <strong style="display: block; color: var(--primary); margin-bottom: 0.2rem;">Word Counter</strong>
+          <span style="font-size: 0.85rem; color: var(--muted);">Count words, characters &amp; lines</span>
+        </a>
+        <a href="password-generator.html" style="display: block; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); background: #f8fafc;">
+          <strong style="display: block; color: var(--primary); margin-bottom: 0.2rem;">Password Generator</strong>
+          <span style="font-size: 0.85rem; color: var(--muted);">Create strong random passwords</span>
+        </a>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -298,6 +316,12 @@
     }
 
     calculateFullBMI();
+    function resetBmiTool() {
+      document.getElementById("full-weight-kg").value = "";
+      document.getElementById("full-height-cm").value = "";
+      document.getElementById("full-bmi-main").textContent = "Enter weight and height to calculate BMI.";
+      document.getElementById("full-bmi-sub").textContent = "";
+    }
   </script>
 </body>
 </html>

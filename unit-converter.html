@@ -242,7 +242,7 @@
       </div>
 
       <button type="button" class="primary-btn" onclick="convertFullUnit()">Convert Unit</button>
-
+<button type="button" onclick="resetUnitTool()" style="margin-top: 0.55rem; width: 100%; padding: 0.72rem 1.2rem; border-radius: 10px; background: #eef2ff; color: var(--primary); border: 1px solid #c7d2fe; font-weight: 600; cursor: pointer;">Reset</button>
       <div class="result-box">
         <span id="full-unit-main">10 km = 6.21 Miles</span>
         <div class="sub-result" id="full-unit-sub"></div>
@@ -268,6 +268,24 @@
     </article>
 
     <div class="ad-slot">Advertisement Space (Bottom Banner - Responsive)</div>
+    <section class="card">
+      <h2>Related Tools You May Need</h2>
+      <p class="subtitle" style="margin-bottom: 1rem;">Explore more everyday utilities on QuickTools Hub.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0.85rem;">
+        <a href="age-calculator.html" style="display: block; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); background: #f8fafc;">
+          <strong style="display: block; color: var(--primary); margin-bottom: 0.2rem;">Age Calculator</strong>
+          <span style="font-size: 0.85rem; color: var(--muted);">Calculate exact age in years &amp; days</span>
+        </a>
+        <a href="word-counter.html" style="display: block; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); background: #f8fafc;">
+          <strong style="display: block; color: var(--primary); margin-bottom: 0.2rem;">Word Counter</strong>
+          <span style="font-size: 0.85rem; color: var(--muted);">Count words, characters &amp; lines</span>
+        </a>
+        <a href="password-generator.html" style="display: block; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); background: #f8fafc;">
+          <strong style="display: block; color: var(--primary); margin-bottom: 0.2rem;">Password Generator</strong>
+          <span style="font-size: 0.85rem; color: var(--muted);">Create strong random passwords</span>
+        </a>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -317,6 +335,12 @@
     }
 
     convertFullUnit();
+    function resetUnitTool() {
+      document.getElementById("full-unit-type").value = "km-mi";
+      document.getElementById("full-unit-val").value = "";
+      document.getElementById("full-unit-main").textContent = "Enter a value to convert units.";
+      document.getElementById("full-unit-sub").textContent = "";
+    }
   </script>
 </body>
 </html>
